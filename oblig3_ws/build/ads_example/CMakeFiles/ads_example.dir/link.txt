@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/ads_example.dir/ads_example.cpp.o -o ads_example  /home/nils/Desktop/oblig3_ws/src/ros2-examples-ads/ADS/build/libAdsLib.a 
