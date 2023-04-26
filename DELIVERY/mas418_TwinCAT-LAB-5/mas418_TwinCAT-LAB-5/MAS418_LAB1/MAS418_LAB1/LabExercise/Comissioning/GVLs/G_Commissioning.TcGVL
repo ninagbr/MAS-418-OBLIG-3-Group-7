@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="G_Commissioning" Id="{f52cce8a-bb8c-4e23-918d-1587f9fb00ff}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	bSetNewMaxFlowCapacity		: BOOL;
+	fNewMaxFlowCapacity 		: LREAL;
+	bSetNewProportionalGain 	: BOOL;
+	bSetNewIntegralGain 		: BOOL;
+	fNewProportionalGain 		: LREAL;
+	fNewIntegralGain 			: LREAL;
+	bSetNewMaxPositionError 			: BOOL;
+	fNewMaxPositionError				: LREAL;
+	stAutomaticControlSettings 	: ST_AutomaticControlSettings;
+	stMotionReferenceGeneratorSettings  : ST_MotionReferenceGeneratorSettings;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

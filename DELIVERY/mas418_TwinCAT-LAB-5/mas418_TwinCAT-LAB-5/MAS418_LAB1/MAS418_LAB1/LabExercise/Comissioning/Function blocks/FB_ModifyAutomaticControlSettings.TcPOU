@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_ModifyAutomaticControlSettings" Id="{b10fa07f-8b07-44ec-993b-317e37a0c116}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ModifyAutomaticControlSettings
+VAR_INPUT
+	stParamOpenLoopControllSettings 	: REFERENCE TO ST_OpenLoopControlSettings;
+	bSetNewMaxFlowCapacity				: BOOL;
+	fNewMaxFlowCapacity 				: LREAL;
+	stParamClosedLoopControllSettings 	: REFERENCE TO ST_ClosedLoopControlSettings;
+	bSetNewProportionalGain 			: BOOL;
+	bSetNewIntegralGain 				: BOOL;
+	fNewProportionalGain 				: LREAL;
+	fNewIntegralGain 					: LREAL;
+	bSetNewMaxPositionError 			: BOOL;
+	fNewMaxPositionError				: LREAL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bSetNewMaxFlowCapacity THEN
+	stParamOpenLoopControllSettings.fMaxFlowCapacity := fNewMaxFlowCapacity;
+	bSetNewMaxFlowCapacity := FALSE;
+END_IF
+
+IF bSetNewProportionalGain THEN
+	stParamClosedLoopControllSettings.fProportionalGain := fNewProportionalGain;
+	bSetNewProportionalGain := FALSE;
+END_IF
+
+IF bSetNewIntegralGain THEN
+	stParamClosedLoopControllSettings.fIntegralGain := fNewIntegralGain;
+	bSetNewIntegralGain := FALSE;
+END_IF
+
+IF bSetNewMaxPositionError THEN
+	stParamClosedLoopControllSettings.fMaxPositionError:= fNewMaxPositionError;
+	bSetNewMaxPositionError := FALSE;
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ModifyAutomaticControlSettings">
+      <LineId Id="29" Count="2" />
+      <LineId Id="27" Count="1" />
+      <LineId Id="15" Count="8" />
+      <LineId Id="33" Count="4" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

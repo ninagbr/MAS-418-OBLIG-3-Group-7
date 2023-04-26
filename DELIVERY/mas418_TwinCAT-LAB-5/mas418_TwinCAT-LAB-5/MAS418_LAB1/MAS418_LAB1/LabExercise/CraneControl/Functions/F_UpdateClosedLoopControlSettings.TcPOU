@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="F_UpdateParametersByReference_1" Id="{99761e76-756a-496d-9e5c-a61054bb3a02}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_UpdateParametersByReference_1 
+VAR_INPUT
+	bSetNewValue : BOOL;
+	fMaxPistonStroke : LREAL;
+	paramCylinderPiston : REFERENCE TO ST_PistonRange;
+END_VAR
+VAR
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bSetNewValue THEN
+	paramCylinderPiston.fPistonPosMax := fMaxPistonStroke;
+	bSetNewValue := FALSE;
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="F_UpdateParametersByReference_1">
+      <LineId Id="17" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="18" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

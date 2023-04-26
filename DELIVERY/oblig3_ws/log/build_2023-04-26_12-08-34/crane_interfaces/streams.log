@@ -1,0 +1,226 @@
+[0.084s] Invoking command in '/home/nils/Desktop/oblig3_ws/build/crane_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator /usr/bin/cmake /home/nils/Desktop/oblig3_ws/src/crane_interfaces -DCMAKE_INSTALL_PREFIX=/home/nils/Desktop/oblig3_ws/install/crane_interfaces
+[1.943s] -- The C compiler identification is GNU 11.3.0
+[1.944s] -- The CXX compiler identification is GNU 11.3.0
+[1.944s] -- Detecting C compiler ABI info
+[1.944s] -- Detecting C compiler ABI info - done
+[1.944s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.944s] -- Detecting C compile features
+[1.944s] -- Detecting C compile features - done
+[1.955s] -- Detecting CXX compiler ABI info
+[1.955s] -- Detecting CXX compiler ABI info - done
+[1.955s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.956s] -- Detecting CXX compile features
+[1.956s] -- Detecting CXX compile features - done
+[1.956s] -- Found ament_cmake: 1.3.3 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.951s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+[3.469s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[3.537s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.601s] -- Found rosidl_adapter: 3.1.4 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.949s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.526s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[6.597s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[7.907s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[8.057s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.6", minimum required is "3.6") 
+[8.059s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[8.144s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.6", minimum required is "3.5") 
+[8.145s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[8.146s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[8.146s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[8.259s] -- Found PythonExtra: .so  
+[8.452s] -- Found ament_lint_auto: 0.12.5 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[8.578s] -- Added test 'copyright' to check source files copyright and LICENSE
+[8.583s] -- Added test 'lint_cmake' to check CMake code style
+[8.588s] -- Added test 'xmllint' to check XML markup files
+[8.602s] -- Configuring done
+[8.816s] -- Generating done
+[8.851s] -- Build files have been written to: /home/nils/Desktop/oblig3_ws/build/crane_interfaces
+[8.902s] Invoked command in '/home/nils/Desktop/oblig3_ws/build/crane_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator /usr/bin/cmake /home/nils/Desktop/oblig3_ws/src/crane_interfaces -DCMAKE_INSTALL_PREFIX=/home/nils/Desktop/oblig3_ws/install/crane_interfaces
+[8.903s] Invoking command in '/home/nils/Desktop/oblig3_ws/build/crane_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator /usr/bin/cmake --build /home/nils/Desktop/oblig3_ws/build/crane_interfaces -- -j3 -l3
+[9.161s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[9.197s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[9.406s] [  6%] Built target ament_cmake_python_copy_crane_interfaces
+[12.563s] [  6%] Built target crane_interfaces__cpp
+[12.640s] [  9%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[12.922s] [ 12%] [32mBuilding C object CMakeFiles/crane_interfaces__rosidl_generator_c.dir/rosidl_generator_c/crane_interfaces/msg/detail/motion_reference__functions.c.o[0m
+[13.130s] running egg_info
+[13.130s] creating crane_interfaces.egg-info
+[13.131s] writing crane_interfaces.egg-info/PKG-INFO
+[13.131s] writing dependency_links to crane_interfaces.egg-info/dependency_links.txt
+[13.131s] writing top-level names to crane_interfaces.egg-info/top_level.txt
+[13.131s] writing manifest file 'crane_interfaces.egg-info/SOURCES.txt'
+[13.149s] reading manifest file 'crane_interfaces.egg-info/SOURCES.txt'
+[13.152s] writing manifest file 'crane_interfaces.egg-info/SOURCES.txt'
+[13.283s] [ 16%] [32m[1mLinking C shared library libcrane_interfaces__rosidl_generator_c.so[0m
+[13.299s] [ 16%] Built target ament_cmake_python_build_crane_interfaces_egg
+[13.360s] [ 19%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[13.523s] [ 19%] Built target crane_interfaces__rosidl_generator_c
+[13.605s] [ 22%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[15.005s] [ 25%] [32mBuilding CXX object CMakeFiles/crane_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/crane_interfaces/msg/motion_reference__type_support.cpp.o[0m
+[15.766s] [ 29%] [32mBuilding CXX object CMakeFiles/crane_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/crane_interfaces/msg/detail/motion_reference__type_support.cpp.o[0m
+[15.925s] [ 32%] [32mBuilding CXX object CMakeFiles/crane_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/crane_interfaces/msg/detail/dds_fastrtps/motion_reference__type_support.cpp.o[0m
+[16.501s] [ 35%] [32m[1mLinking CXX shared library libcrane_interfaces__rosidl_typesupport_cpp.so[0m
+[16.735s] [ 35%] Built target crane_interfaces__rosidl_typesupport_cpp
+[16.789s] [ 38%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[17.950s] [ 41%] [32m[1mLinking CXX shared library libcrane_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[18.094s] [ 41%] Built target crane_interfaces__rosidl_typesupport_introspection_cpp
+[18.165s] [ 45%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[18.366s] [ 48%] [32m[1mLinking CXX shared library libcrane_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[18.520s] [ 51%] [32mBuilding CXX object CMakeFiles/crane_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/crane_interfaces/msg/detail/motion_reference__type_support_c.cpp.o[0m
+[19.003s] [ 51%] Built target crane_interfaces__rosidl_typesupport_fastrtps_cpp
+[19.024s] [ 54%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[19.573s] [ 58%] [32mBuilding C object CMakeFiles/crane_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/crane_interfaces/msg/detail/motion_reference__type_support.c.o[0m
+[19.660s] [ 61%] [32m[1mLinking C shared library libcrane_interfaces__rosidl_typesupport_introspection_c.so[0m
+[19.723s] [ 61%] Built target crane_interfaces__rosidl_typesupport_introspection_c
+[20.586s] [ 64%] [32m[1mLinking CXX shared library libcrane_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[20.649s] [ 67%] [32mBuilding CXX object CMakeFiles/crane_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/crane_interfaces/msg/motion_reference__type_support.cpp.o[0m
+[20.727s] [ 70%] [32m[1mLinking CXX shared library libcrane_interfaces__rosidl_typesupport_c.so[0m
+[20.861s] [ 70%] Built target crane_interfaces__rosidl_typesupport_c
+[21.066s] [ 70%] Built target crane_interfaces__rosidl_typesupport_fastrtps_c
+[21.157s] [ 70%] Built target crane_interfaces
+[21.311s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[23.310s] [ 74%] Built target crane_interfaces__py
+[23.445s] [ 77%] [32mBuilding C object CMakeFiles/crane_interfaces__rosidl_generator_py.dir/rosidl_generator_py/crane_interfaces/msg/_motion_reference_s.c.o[0m
+[23.929s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/crane_interfaces/libcrane_interfaces__rosidl_generator_py.so[0m
+[24.165s] [ 80%] Built target crane_interfaces__rosidl_generator_py
+[24.312s] [ 83%] [32mBuilding C object CMakeFiles/crane_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/crane_interfaces/_crane_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[24.323s] [ 87%] [32mBuilding C object CMakeFiles/crane_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/crane_interfaces/_crane_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[24.329s] [ 90%] [32mBuilding C object CMakeFiles/crane_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/crane_interfaces/_crane_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[24.564s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/crane_interfaces/crane_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[24.623s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/crane_interfaces/crane_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[24.691s] [ 96%] Built target crane_interfaces__rosidl_typesupport_c__pyext
+[24.742s] [ 96%] Built target crane_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[25.031s] [100%] [32m[1mLinking C shared library rosidl_generator_py/crane_interfaces/crane_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[25.240s] [100%] Built target crane_interfaces__rosidl_typesupport_introspection_c__pyext
+[25.284s] Invoked command in '/home/nils/Desktop/oblig3_ws/build/crane_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator /usr/bin/cmake --build /home/nils/Desktop/oblig3_ws/build/crane_interfaces -- -j3 -l3
+[26.032s] Invoking command in '/home/nils/Desktop/oblig3_ws/build/crane_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator /usr/bin/cmake --install /home/nils/Desktop/oblig3_ws/build/crane_interfaces
+[26.068s] -- Install configuration: ""
+[26.071s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/ament_index/resource_index/rosidl_interfaces/crane_interfaces
+[26.077s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces
+[26.081s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg
+[26.081s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/motion_reference.h
+[26.082s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/rosidl_generator_c__visibility_control.h
+[26.082s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail
+[26.095s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__type_support.h
+[26.095s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__functions.h
+[26.095s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__functions.c
+[26.096s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__struct.h
+[26.096s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/environment/library_path.sh
+[26.096s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/environment/library_path.dsv
+[26.096s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_generator_c.so
+[26.098s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_generator_c.so" to ""
+[26.100s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces
+[26.101s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg
+[26.102s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[26.104s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail
+[26.104s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__rosidl_typesupport_fastrtps_c.h
+[26.108s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_fastrtps_c.so
+[26.116s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[26.117s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces
+[26.117s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg
+[26.118s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[26.119s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail
+[26.120s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__rosidl_typesupport_introspection_c.h
+[26.122s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__type_support.c
+[26.127s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_introspection_c.so
+[26.133s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[26.135s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_c.so
+[26.136s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_c.so" to ""
+[26.136s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces
+[26.137s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg
+[26.137s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/motion_reference.hpp
+[26.138s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail
+[26.139s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__struct.hpp
+[26.142s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__traits.hpp
+[26.143s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__builder.hpp
+[26.144s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces
+[26.145s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg
+[26.145s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[26.148s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail
+[26.149s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__rosidl_typesupport_fastrtps_cpp.hpp
+[26.155s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/dds_fastrtps
+[26.156s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[26.158s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[26.159s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces
+[26.160s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg
+[26.160s] -- Up-to-date: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail
+[26.160s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__type_support.cpp
+[26.161s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/include/crane_interfaces/crane_interfaces/msg/detail/motion_reference__rosidl_typesupport_introspection_cpp.hpp
+[26.162s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_introspection_cpp.so
+[26.163s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[26.163s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_cpp.so
+[26.164s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_typesupport_cpp.so" to ""
+[26.165s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/environment/pythonpath.sh
+[26.170s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/environment/pythonpath.dsv
+[26.170s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces-0.0.0-py3.10.egg-info
+[26.171s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[26.172s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[26.174s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[26.175s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[26.177s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces
+[26.177s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/_crane_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[26.178s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[26.178s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[26.179s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/msg
+[26.182s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/msg/_motion_reference.py
+[26.185s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/msg/__init__.py
+[26.186s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/msg/_motion_reference_s.c
+[26.191s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/_crane_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[26.192s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/_crane_interfaces_s.ep.rosidl_typesupport_c.c
+[26.194s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[26.200s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/__init__.py
+[26.200s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/libcrane_interfaces__rosidl_generator_py.so
+[26.299s] Listing '/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces'...
+[26.299s] Compiling '/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/__init__.py'...
+[26.299s] Listing '/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/msg'...
+[26.299s] Compiling '/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/msg/__init__.py'...
+[26.300s] Compiling '/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/msg/_motion_reference.py'...
+[26.318s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[26.318s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[26.318s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[26.319s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[26.319s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[26.319s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages/crane_interfaces/crane_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[26.319s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_generator_py.so
+[26.319s] -- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib/libcrane_interfaces__rosidl_generator_py.so" to ""
+[26.319s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/msg/MotionReference.idl
+[26.319s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/msg/MotionReference.msg
+[26.319s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/ament_index/resource_index/package_run_dependencies/crane_interfaces
+[26.320s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/ament_index/resource_index/parent_prefix_path/crane_interfaces
+[26.320s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/environment/ament_prefix_path.sh
+[26.320s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/environment/ament_prefix_path.dsv
+[26.320s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/environment/path.sh
+[26.320s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/environment/path.dsv
+[26.320s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/local_setup.bash
+[26.320s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/local_setup.sh
+[26.321s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/local_setup.zsh
+[26.321s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/local_setup.dsv
+[26.321s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/package.dsv
+[26.321s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/ament_index/resource_index/packages/crane_interfaces
+[26.321s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_generator_cExport.cmake
+[26.321s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_generator_cExport-noconfig.cmake
+[26.321s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[26.322s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[26.332s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[26.333s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[26.333s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfaces__rosidl_typesupport_cExport.cmake
+[26.336s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[26.336s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_generator_cppExport.cmake
+[26.336s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[26.336s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[26.336s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[26.336s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[26.336s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfaces__rosidl_typesupport_cppExport.cmake
+[26.337s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[26.337s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_generator_pyExport.cmake
+[26.343s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/export_crane_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[26.344s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/rosidl_cmake-extras.cmake
+[26.345s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[26.345s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[26.346s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[26.346s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[26.348s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[26.349s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[26.349s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfacesConfig.cmake
+[26.350s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/cmake/crane_interfacesConfig-version.cmake
+[26.353s] -- Installing: /home/nils/Desktop/oblig3_ws/install/crane_interfaces/share/crane_interfaces/package.xml
+[26.362s] Invoked command in '/home/nils/Desktop/oblig3_ws/build/crane_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator /usr/bin/cmake --install /home/nils/Desktop/oblig3_ws/build/crane_interfaces

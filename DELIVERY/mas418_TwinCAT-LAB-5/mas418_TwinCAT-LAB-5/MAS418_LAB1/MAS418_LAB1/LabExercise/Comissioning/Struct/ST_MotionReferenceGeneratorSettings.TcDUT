@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_MotionReferenceGeneratorSettings" Id="{254965e6-b334-44fc-b79f-3e661039b245}">
+    <Declaration><![CDATA[TYPE ST_MotionReferenceGeneratorSettings :
+STRUCT
+	fStartPosition_m		: LREAL := 0.0;
+	fStartVelocity_m		: LREAL	:= 0.0;
+	fPositionSetpoint_ms	: LREAL := 0.25;
+	fVelocitySetpoint_m		: LREAL := 0.025;
+	fMaxPosition 			: LREAL := 0.45;
+	fMinPosition 			: LREAL := 0.0;
+	fMaxVelocity 			: LREAL := 0.05;
+	fTimeBeforeStarting_s	: LREAL := 3.0;
+	fRampTime_s				: LREAL := 1.0;
+	fHoldPositionTime_s		: LREAL := 5.0;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

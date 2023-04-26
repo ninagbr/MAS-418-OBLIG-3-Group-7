@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_ResetIntegralController" Id="{0d649c07-5b1e-4f69-9d0d-d4c49aa2a0af}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ResetIntegralController
+VAR_INPUT
+	stParam 				: ST_Parameters;
+	fVelocityReference_ms	: LREAL;
+	fPositionError_m		: LREAL;
+END_VAR
+VAR_OUTPUT
+	bReset: BOOL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF ABS(fVelocityReference_ms) > 0.0 THEN 
+    bReset := FALSE;
+ELSIF ABS(fPositionError_m) > stParam.stClosedLoopControlSettings.fMaxPositionError THEN 
+    bReset := FALSE;
+ELSE 
+    bReset := TRUE;
+END_IF;
+
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ResetIntegralController">
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="14" Count="1" />
+      <LineId Id="18" Count="1" />
+      <LineId Id="26" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

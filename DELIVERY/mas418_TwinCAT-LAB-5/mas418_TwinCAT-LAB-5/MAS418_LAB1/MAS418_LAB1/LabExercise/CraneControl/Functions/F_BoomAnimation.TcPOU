@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="F_BoomAnimation" Id="{8658192c-b10e-4d47-8f72-6b5a3927997e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_BoomAnimation 
+VAR_INPUT
+	fScale : LREAL;
+	fBoomAngle : LREAL;
+	fBoomLength : LREAL;
+END_VAR
+VAR_OUTPUT
+	fBoomTipX : INT;
+	fBoomTipY : INT;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fBoomTipX := LREAL_TO_INT( fBoomLength * ( COS(fBoomAngle) - SIN(fBoomAngle) ) * fScale );
+fBoomTipY := LREAL_TO_INT( fBoomLength * ( SIN(fBoomAngle) + COS(fBoomAngle) ) * fScale );]]></ST>
+    </Implementation>
+    <LineIds Name="F_BoomAnimation">
+      <LineId Id="7" Count="0" />
+      <LineId Id="15" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

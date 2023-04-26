@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_CraneSimulator" Id="{8670c58c-3f94-4242-bcb3-044a8e249d2c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_CraneSimulator
+VAR_INPUT
+	ssMethodType: SINT;
+	uDCV: LREAL;
+END_VAR
+VAR_OUTPUT
+	xm: LREAL;
+	ppbar: LREAL;
+	prbar: LREAL;
+END_VAR
+VAR
+	pLS: LREAL;
+	QDCV_out: LREAL;
+	rtb_xDot: LREAL;
+	rtb_xDotDot: LREAL;
+	temp1: LREAL;
+	temp2: LREAL;
+	temp3: LREAL;
+	temp4: LREAL;
+	c_DiscreteTimeIntegrator2_D: LREAL;
+	c_DiscreteTimeIntegrator3_D: LREAL;
+	c_DiscreteTimeIntegrator_DS: LREAL;
+	c_DiscreteTimeIntegrator4_D: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+CASE ssMethodType OF
+    0: 
+        (* SystemInitialize for Atomic SubSystem: '<Root>/FB_CraneSimulator' *)
+        (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        c_DiscreteTimeIntegrator_DS := 4.377E+6;
+        (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator2' *)
+        c_DiscreteTimeIntegrator2_D := 0.0;
+        (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator3' *)
+        c_DiscreteTimeIntegrator3_D := 0.0;
+        (* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator4' *)
+        c_DiscreteTimeIntegrator4_D := 468300.0;
+        (* End of SystemInitialize for SubSystem: '<Root>/FB_CraneSimulator' *)
+    1: 
+        (* Outputs for Atomic SubSystem: '<Root>/FB_CraneSimulator' *)
+        (* DiscreteIntegrator: '<S1>/Discrete-Time Integrator2' *)
+        rtb_xDot := c_DiscreteTimeIntegrator2_D;
+        (* Outport: '<Root>/x [m]' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator3' *)
+        xm := c_DiscreteTimeIntegrator3_D;
+        (* Outport: '<Root>/pp [bar]' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator'
+         *  Gain: '<S1>/Gain' *)
+        ppbar := 1.0E-5 * c_DiscreteTimeIntegrator_DS;
+        (* Outport: '<Root>/pr [bar]' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator4'
+         *  Gain: '<S1>/Gain1' *)
+        prbar := 1.0E-5 * c_DiscreteTimeIntegrator4_D;
+        (* MATLAB Function: '<S1>/MATLAB Function' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator'
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator2'
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator3'
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator4' *)
+        (* Parameters *)
+        (* MATLAB Function 'FB_CraneSimulator/MATLAB Function': '<S2>:1' *)
+        (* '<S2>:1:3' Fexternal = 1.3365e+04; *)
+        (* [N] *)
+        (* '<S2>:1:4' mEffective = 1.3365e+04; *)
+        (* [kg] *)
+        (* '<S2>:1:5' kFric = 4000; *)
+        (* [N/(ms)] *)
+        (* '<S2>:1:6' Apiston = 0.0033; *)
+        (* [m^2] *)
+        (* '<S2>:1:7' Aannulus = 0.0023; *)
+        (* [m^2] *)
+        (* '<S2>:1:8' beta = 1.0e9; *)
+        (* [Pa] *)
+        (* '<S2>:1:9' pSupply = 180e5; *)
+        (* [Pa] *)
+        (* '<S2>:1:10' pReturn = 1.1e5; *)
+        (* [Pa] *)
+        (* '<S2>:1:11' MaxStroke = 0.5; *)
+        (* [m] *)
+        (* '<S2>:1:12' VCyl_A = 1.0e-03; *)
+        (* '<S2>:1:13' VCyl_B = 1.25e-03; *)
+        (* '<S2>:1:14' p_nom_DCV = 7e5; *)
+        (* '<S2>:1:15' Q1_ref_DCV = 20/6e4; *)
+        (* '<S2>:1:16' kv1_DCV = Q1_ref_DCV/sqrt(p_nom_DCV); *)
+        (* '<S2>:1:17' p0 = 7e5; *)
+        (* compensator crack pressure *)
+        (* Directional Control Valve - Lifting Cylinder  *)
+        (* LS Pressure *)
+        (* '<S2>:1:20' if uDCV > 0 *)
+
+        IF uDCV > 0.0 THEN 
+            (* '<S2>:1:21' pLS = pPiston; *)
+            pLS := c_DiscreteTimeIntegrator_DS;
+        ELSIF uDCV < 0.0 THEN 
+            (* '<S2>:1:22' elseif uDCV < 0 *)
+            (* '<S2>:1:23' pLS = pRod; *)
+            pLS := c_DiscreteTimeIntegrator4_D;
+        ELSE 
+            (* '<S2>:1:24' else *)
+            (* '<S2>:1:25' pLS = 0; *)
+            pLS := 0.0;
+        END_IF;
+
+        (* '<S2>:1:28' if pLS<0 *)
+
+        IF pLS < 0.0 THEN 
+            (* '<S2>:1:29' pLS = 0; *)
+            pLS := 0.0;
+        END_IF;
+
+        (* Pressure Compensator *)
+        (* '<S2>:1:33' pPC = 0; *)
+        (* '<S2>:1:35' if p0 <= (pSupply - pLS) *)
+
+        IF 700000.0 <= (1.8E+7 - pLS) THEN 
+            (* '<S2>:1:36' pPC = pLS+p0; *)
+            pLS := pLS + 700000.0;
+        ELSE 
+            (* '<S2>:1:37' elseif 0 < (pSupply - pLS) < p0 *)
+            (* '<S2>:1:38' pPC = pSupply-pLS; *)
+            pLS := 1.8E+7 - pLS;
+        END_IF;
+
+        (* '<S2>:1:43' if pPC<0 *)
+
+        IF pLS < 0.0 THEN 
+            (* '<S2>:1:44' pPC = 0; *)
+            pLS := 0.0;
+        END_IF;
+
+        (* Orifice Equations *)
+        (* '<S2>:1:47' if uDCV > 0 *)
+
+        IF uDCV > 0.0 THEN 
+            (* '<S2>:1:48' QDCV_in =  kv1_DCV*uDCV*sign(pPC-pPiston)*sqrt(abs(pPC-pPiston)); *)
+            pLS := pLS - c_DiscreteTimeIntegrator_DS;
+
+            IF pLS < 0.0 THEN 
+                rtb_xDotDot := -1.0;
+            ELSIF pLS > 0.0 THEN 
+                rtb_xDotDot := 1.0;
+            ELSE 
+                rtb_xDotDot := pLS;
+            END_IF;
+
+            temp3 := ABS(pLS);
+            pLS := ((3.9840953644479785E-7 * uDCV) * rtb_xDotDot) * SQRT(temp3);
+            (* '<S2>:1:49' QDCV_out = kv1_DCV*uDCV*sign(pRod-pReturn)*sqrt(abs(pRod-pReturn)); *)
+
+            IF (c_DiscreteTimeIntegrator4_D - 110000.0) < 0.0 THEN 
+                rtb_xDotDot := -1.0;
+            ELSIF (c_DiscreteTimeIntegrator4_D - 110000.0) > 0.0 THEN 
+                rtb_xDotDot := 1.0;
+            ELSE 
+                rtb_xDotDot := c_DiscreteTimeIntegrator4_D - 110000.0;
+            END_IF;
+
+            temp4 := ABS(c_DiscreteTimeIntegrator4_D - 110000.0);
+            QDCV_out := ((3.9840953644479785E-7 * uDCV) * rtb_xDotDot) * SQRT(temp4);
+        ELSIF uDCV < 0.0 THEN 
+            (* '<S2>:1:50' elseif uDCV < 0 *)
+            (* '<S2>:1:51' QDCV_out =  kv1_DCV*uDCV*sign(pPC-pRod)*sqrt(abs(pPC-pRod)); *)
+            pLS := pLS - c_DiscreteTimeIntegrator4_D;
+
+            IF pLS < 0.0 THEN 
+                rtb_xDotDot := -1.0;
+            ELSIF pLS > 0.0 THEN 
+                rtb_xDotDot := 1.0;
+            ELSE 
+                rtb_xDotDot := pLS;
+            END_IF;
+
+            temp1 := ABS(pLS);
+            QDCV_out := ((3.9840953644479785E-7 * uDCV) * rtb_xDotDot) * SQRT(temp1);
+            (* '<S2>:1:52' QDCV_in =  kv1_DCV*uDCV*sign(pRod-pReturn)*sqrt(abs(pRod-pReturn)); *)
+
+            IF (c_DiscreteTimeIntegrator4_D - 110000.0) < 0.0 THEN 
+                rtb_xDotDot := -1.0;
+            ELSIF (c_DiscreteTimeIntegrator4_D - 110000.0) > 0.0 THEN 
+                rtb_xDotDot := 1.0;
+            ELSE 
+                rtb_xDotDot := c_DiscreteTimeIntegrator4_D - 110000.0;
+            END_IF;
+
+            temp2 := ABS(c_DiscreteTimeIntegrator4_D - 110000.0);
+            pLS := ((3.9840953644479785E-7 * uDCV) * rtb_xDotDot) * SQRT(temp2);
+        ELSE 
+            (* '<S2>:1:53' else *)
+            (* '<S2>:1:54' QDCV_in = 0; *)
+            pLS := 0.0;
+            (* '<S2>:1:55' QDCV_out = 0; *)
+            QDCV_out := 0.0;
+        END_IF;
+
+        (* Pressure Gradients *)
+        (* '<S2>:1:58' VA = VCyl_A + x*Apiston; *)
+        (* '<S2>:1:59' VB =  VCyl_B + (MaxStroke - x)*Aannulus; *)
+        (* '<S2>:1:60' VA_dot = Apiston*xDot; *)
+        (* '<S2>:1:61' VB_dot = -Aannulus*xDot; *)
+        (* '<S2>:1:62' pPistonDot = beta/VA*(QDCV_in - VA_dot); *)
+        (* '<S2>:1:63' pRodDot = beta/VB*(-QDCV_out - VB_dot); *)
+        QDCV_out := (1.0E+9 / (((0.5 - c_DiscreteTimeIntegrator3_D) * 0.0023) + 0.00125)) * (( -QDCV_out) - (-0.0023 * c_DiscreteTimeIntegrator2_D));
+        (* Viscouse Friction *)
+        (* '<S2>:1:66' Ffric = kFric*xDot; *)
+        (* Hydraulic Force *)
+        (* '<S2>:1:69' Fhyd = pPiston*Apiston - pRod*Aannulus; *)
+        (* Newton Second Law of Motion *)
+        (* '<S2>:1:72' xDotDot = (Fhyd - Ffric - Fexternal)/mEffective; *)
+        rtb_xDotDot := ((((c_DiscreteTimeIntegrator_DS * 0.0033) - (c_DiscreteTimeIntegrator4_D * 0.0023)) - (4000.0 * c_DiscreteTimeIntegrator2_D)) - 13365.0) / 13365.0;
+        (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' incorporates:
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator2'
+         *  DiscreteIntegrator: '<S1>/Discrete-Time Integrator3'
+         *  MATLAB Function: '<S1>/MATLAB Function' *)
+        c_DiscreteTimeIntegrator_DS := (((1.0E+9 / ((c_DiscreteTimeIntegrator3_D * 0.0033) + 0.001)) * (pLS - (0.0033 * c_DiscreteTimeIntegrator2_D))) * 0.0001) + c_DiscreteTimeIntegrator_DS;
+
+        IF c_DiscreteTimeIntegrator_DS >= 1.8E+7 THEN 
+            c_DiscreteTimeIntegrator_DS := 1.8E+7;
+        ELSIF c_DiscreteTimeIntegrator_DS <= 110000.0 THEN 
+            c_DiscreteTimeIntegrator_DS := 110000.0;
+        END_IF;
+
+        (* End of Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' *)
+        
+
+        (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator2' *)
+        c_DiscreteTimeIntegrator2_D := (0.0001 * rtb_xDotDot) + c_DiscreteTimeIntegrator2_D;
+
+        IF c_DiscreteTimeIntegrator2_D >= 0.12 THEN 
+            c_DiscreteTimeIntegrator2_D := 0.12;
+        ELSIF c_DiscreteTimeIntegrator2_D <= -0.12 THEN 
+            c_DiscreteTimeIntegrator2_D := -0.12;
+        END_IF;
+
+        (* End of Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator2' *)
+        
+
+        (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator3' *)
+        c_DiscreteTimeIntegrator3_D := (0.0001 * rtb_xDot) + c_DiscreteTimeIntegrator3_D;
+
+        IF c_DiscreteTimeIntegrator3_D >= 0.5 THEN 
+            c_DiscreteTimeIntegrator3_D := 0.5;
+        ELSIF c_DiscreteTimeIntegrator3_D <= 0.0 THEN 
+            c_DiscreteTimeIntegrator3_D := 0.0;
+        END_IF;
+
+        (* End of Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator3' *)
+        
+
+        (* Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator4' *)
+        c_DiscreteTimeIntegrator4_D := (0.0001 * QDCV_out) + c_DiscreteTimeIntegrator4_D;
+
+        IF c_DiscreteTimeIntegrator4_D >= 1.8E+7 THEN 
+            c_DiscreteTimeIntegrator4_D := 1.8E+7;
+        ELSIF c_DiscreteTimeIntegrator4_D <= 110000.0 THEN 
+            c_DiscreteTimeIntegrator4_D := 110000.0;
+        END_IF;
+
+        (* End of Update for DiscreteIntegrator: '<S1>/Discrete-Time Integrator4' *)
+        (* End of Outputs for SubSystem: '<Root>/FB_CraneSimulator' *)
+END_CASE;
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_CraneSimulator">
+      <LineId Id="3" Count="236" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_VirtualControlBox" Id="{b5dbd877-8357-49f5-a98a-ac539e1b1d21}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_VirtualControlBox IMPLEMENTS I_ControlBox
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Joystick" Id="{0e45108c-98eb-4a1c-a573-38934797d553}">
+      <Declaration><![CDATA[METHOD Joystick
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+VAR_OUTPUT
+	fJoystickY : LREAL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF eMode = E_Mode.Manual AND eStatus = E_Status.Running THEN
+	fJoystickY := G_VirtualControlBox.fJoystickY;
+ELSE
+	fJoystickY := 0.0;
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Lamps" Id="{0dd9b505-9eff-424c-bfde-77014d6169c5}">
+      <Declaration><![CDATA[METHOD Lamps
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF eStatus = E_Status.Running AND NOT(eMode = E_Mode.Off) THEN
+	G_VirtualControlBox.bGreenLight :=  TRUE;
+ELSE
+	G_VirtualControlBox.bGreenLight :=  FALSE;
+END_IF
+
+IF eStatus = E_Status.Fault  AND NOT(eMode = E_Mode.Off) THEN
+	G_VirtualControlBox.bRedLight :=  TRUE;
+ELSE
+	G_VirtualControlBox.bRedLight :=  FALSE;
+END_IF
+
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ModeSelector" Id="{e15f3617-ec38-4567-aa4b-7e33c463052d}">
+      <Declaration><![CDATA[METHOD ModeSelector 
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	eMode : E_Mode;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE eMode OF 
+	E_Mode.Off:	
+		IF G_VirtualControlBox.bOnSelector AND NOT(G_VirtualControlBox.bAutoSelector) THEN	
+			eMode := E_Mode.Manual;
+		END_IF
+		
+		IF G_VirtualControlBox.bOnSelector AND G_VirtualControlBox.bAutoSelector THEN	
+			eMode := E_Mode.Auto;
+		END_IF
+
+	E_Mode.Manual: 
+		IF NOT(G_VirtualControlBox.bOnSelector) THEN	
+			eMode := E_Mode.Off;
+		END_IF
+		
+		IF G_VirtualControlBox.bOnSelector AND G_VirtualControlBox.bAutoSelector THEN	
+			eMode := E_Mode.Auto;
+		END_IF
+	
+	E_Mode.Auto:
+		IF NOT(G_VirtualControlBox.bOnSelector) THEN	
+			eMode := E_Mode.Off;
+		END_IF
+		
+		IF G_VirtualControlBox.bOnSelector AND NOT(G_VirtualControlBox.bAutoSelector) THEN	
+			eMode := E_Mode.Manual;
+		END_IF	
+ELSE 	
+	eMode := E_Mode.Off;
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="PushButtons" Id="{eb5d4ee8-8d07-4405-bec2-29949ecb2e14}">
+      <Declaration><![CDATA[METHOD PushButtons
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+VAR_OUTPUT
+	bStart : BOOL;
+	bStop : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF NOT(eMode = E_Mode.Off) AND (NOT(eStatus = E_Status.Fault) OR (eStatus = E_Status.Off)) THEN 
+	bStart := G_VirtualControlBox.bStartButton;
+	bStop := G_VirtualControlBox.bStopButton;
+ELSE
+	bStart := FALSE;
+	bStop := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_VirtualControlBox">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VirtualControlBox.Joystick">
+      <LineId Id="8" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="1" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VirtualControlBox.Lamps">
+      <LineId Id="23" Count="1" />
+      <LineId Id="26" Count="1" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="31" Count="3" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="8" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VirtualControlBox.ModeSelector">
+      <LineId Id="76" Count="28" />
+      <LineId Id="23" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_VirtualControlBox.PushButtons">
+      <LineId Id="5" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="15" Count="3" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

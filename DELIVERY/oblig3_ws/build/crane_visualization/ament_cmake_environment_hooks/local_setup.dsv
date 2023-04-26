@@ -1,0 +1,2 @@
+source;share/crane_visualization/environment/ament_prefix_path.sh
+source;share/crane_visualization/environment/path.sh

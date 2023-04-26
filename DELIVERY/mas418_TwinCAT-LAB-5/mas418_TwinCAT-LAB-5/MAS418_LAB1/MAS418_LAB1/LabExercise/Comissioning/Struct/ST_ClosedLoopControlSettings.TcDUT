@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_ClosedLoopControlSettings" Id="{7ee854d9-b6f8-4d51-b179-a1136b0ccbb8}">
+    <Declaration><![CDATA[TYPE ST_ClosedLoopControlSettings :
+STRUCT
+	fMaxPositionError 					: LREAL := 1E-3;
+	fProportionalGain 					: LREAL := 29.17;
+	fIntegralGain 						: LREAL := 19.49;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

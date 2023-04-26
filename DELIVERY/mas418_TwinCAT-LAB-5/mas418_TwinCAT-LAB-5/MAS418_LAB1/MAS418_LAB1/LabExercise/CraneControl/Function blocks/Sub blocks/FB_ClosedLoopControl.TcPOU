@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_ClosedLoopControl" Id="{d2f44967-7d49-4657-aaf2-1095a85750ac}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ClosedLoopControl
+VAR_INPUT
+	bEnable						: BOOL;
+	stParam 					: ST_Parameters;
+	bActivateIntegralController	: BOOL;
+	bIntegralControllReset		: BOOL;
+	fInput_m					: LREAL;
+	fFeedback_m					: LREAL;
+END_VAR
+VAR_OUTPUT
+	fNormalizedOutput	: LREAL;
+	fPositionError		: LREAL;
+END_VAR
+VAR
+	rtb_u_FB					: LREAL;
+	rtb_Saturation1				: LREAL;
+	c_DiscreteTimeIntegrator_DS	: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fPositionError := fInput_m - fFeedback_m;
+
+IF bIntegralControllReset THEN 
+	c_DiscreteTimeIntegrator_DS := 0.0;
+END_IF;
+
+IF c_DiscreteTimeIntegrator_DS >= 1.0 THEN 
+	c_DiscreteTimeIntegrator_DS := 1.0;
+ELSIF c_DiscreteTimeIntegrator_DS <= -1.0 THEN 
+	c_DiscreteTimeIntegrator_DS := -1.0;
+END_IF;
+
+IF bActivateIntegralController THEN 
+	rtb_u_FB := c_DiscreteTimeIntegrator_DS;
+ELSE 
+	rtb_u_FB := 0.0;
+END_IF;
+
+rtb_u_FB := (stParam.stClosedLoopControlSettings.fProportionalGain * fPositionError) + rtb_u_FB;
+
+IF rtb_u_FB > 1.0 THEN 
+	rtb_Saturation1 := 1.0;
+ELSIF rtb_u_FB >= -1.0 THEN 
+	rtb_Saturation1 := rtb_u_FB;
+ELSE 
+	rtb_Saturation1 := -1.0;
+END_IF;
+
+IF bEnable THEN 
+	fNormalizedOutput := rtb_Saturation1;
+ELSE 
+	fNormalizedOutput := 0.0;
+END_IF;
+
+c_DiscreteTimeIntegrator_DS := (((((rtb_Saturation1 - rtb_u_FB) / stParam.stClosedLoopControlSettings.fProportionalGain) + fPositionError) * stParam.stClosedLoopControlSettings.fIntegralGain) * stParam.fCyclicTime) + c_DiscreteTimeIntegrator_DS;
+
+IF c_DiscreteTimeIntegrator_DS >= 1.0 THEN 
+	c_DiscreteTimeIntegrator_DS := 1.0;
+ELSIF c_DiscreteTimeIntegrator_DS <= -1.0 THEN 
+	c_DiscreteTimeIntegrator_DS := -1.0;
+END_IF;]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ClosedLoopControl">
+      <LineId Id="14" Count="0" />
+      <LineId Id="16" Count="3" />
+      <LineId Id="21" Count="5" />
+      <LineId Id="31" Count="5" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="45" Count="7" />
+      <LineId Id="58" Count="1" />
+      <LineId Id="61" Count="1" />
+      <LineId Id="65" Count="1" />
+      <LineId Id="75" Count="7" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

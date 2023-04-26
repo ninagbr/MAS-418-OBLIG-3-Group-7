@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_RelativeMovement" Id="{d1059b20-a40c-49c0-a932-2d3ba4c07abd}">
+    <Declaration><![CDATA[TYPE ST_RelativeMovement :
+STRUCT
+	pt0_x : INT := 0;
+	pt0_y : INT := 0;
+	pt1_x : INT := 0;
+	pt1_y : INT := 0; 
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

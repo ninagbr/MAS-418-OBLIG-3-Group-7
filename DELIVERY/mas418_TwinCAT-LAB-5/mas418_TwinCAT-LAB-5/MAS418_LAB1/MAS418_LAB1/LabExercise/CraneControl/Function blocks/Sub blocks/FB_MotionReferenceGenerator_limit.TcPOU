@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_MotionReferenceGenerator_limit" Id="{4a3ccaad-ab81-40d3-ad25-06f5590fddd7}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MotionReferenceGenerator_limit
+VAR_INPUT
+	bEnable 							: BOOL;
+	stMotionReferenceGeneratorSettings  : ST_MotionReferenceGeneratorSettings;
+	fClock_s							: LREAL;
+END_VAR
+VAR_OUTPUT
+	fPositionReference_m	: LREAL;
+	fVelocityReference_ms	: LREAL;
+	fTotalMotionTime_s		: LREAL;
+	bErrorSignal			: BOOL;
+END_VAR
+VAR
+	fStartPosition_m		: LREAL;
+	fStartVelocity_m		: LREAL;
+	fPositionSetpoint_ms	: LREAL;
+	fVelocitySetpoint_m		: LREAL;
+	fTimeBeforeStarting_s	: LREAL;
+	fRampTime_s				: LREAL;
+	fHoldPositionTime_s		: LREAL;
+	Error					: DINT;
+	slopeExt				: LREAL;
+	slopeRetr				: LREAL;
+	tHold					: LREAL;
+	x1						: LREAL;
+	x4						: LREAL;
+	x1_tmp					: LREAL;
+	x1_tmp_tmp				: LREAL;
+	x4_tmp					: LREAL;
+	x4_tmp_tmp				: LREAL;
+	x4_tmp_tmp_0			: LREAL;
+	x1_tmp_0				: LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT(bEnable) THEN
+	RETURN;
+END_IF
+
+// LIMIT function: https://help.codesys.com/api-content/2/codesys/3.5.12.0/en/_cds_operator_limit/
+fStartPosition_m := LIMIT(stMotionReferenceGeneratorSettings.fMinPosition, stMotionReferenceGeneratorSettings.fStartPosition_m, stMotionReferenceGeneratorSettings.fMaxPosition);
+fStartVelocity_m := LIMIT(0.0, stMotionReferenceGeneratorSettings.fStartVelocity_m, stMotionReferenceGeneratorSettings.fMaxVelocity);
+fPositionSetpoint_ms := LIMIT(stMotionReferenceGeneratorSettings.fMinPosition, stMotionReferenceGeneratorSettings.fPositionSetpoint_ms, stMotionReferenceGeneratorSettings.fMaxPosition);
+fVelocitySetpoint_m := LIMIT(0.0, stMotionReferenceGeneratorSettings.fVelocitySetpoint_m, stMotionReferenceGeneratorSettings.fMaxVelocity);
+fTimeBeforeStarting_s := LIMIT(0.0, stMotionReferenceGeneratorSettings.fTimeBeforeStarting_s, 10.0);
+fRampTime_s := LIMIT(0.0, stMotionReferenceGeneratorSettings.fRampTime_s, 10.0);
+fHoldPositionTime_s := LIMIT(0.0, stMotionReferenceGeneratorSettings.fHoldPositionTime_s, 60.0);
+
+slopeExt := fStartVelocity_m - fVelocitySetpoint_m;
+
+slopeRetr := ( -fVelocitySetpoint_m) - fStartVelocity_m;
+
+tHold := ((fPositionSetpoint_ms - fStartPosition_m) - (((fVelocitySetpoint_m * fVelocitySetpoint_m) - (fStartVelocity_m * fStartVelocity_m)) / (fVelocitySetpoint_m / fRampTime_s))) / fVelocitySetpoint_m;
+
+IF tHold < 0.0  THEN 
+    bErrorSignal := TRUE;
+ELSE 
+    bErrorSignal := FALSE;
+END_IF;
+
+x1_tmp_tmp := fTimeBeforeStarting_s + fRampTime_s;
+x1_tmp := x1_tmp_tmp - fTimeBeforeStarting_s;
+x1_tmp_0 := slopeExt / fRampTime_s;
+x1 := ((x1_tmp * fStartVelocity_m) + fStartPosition_m) - ((x1_tmp_0 * (x1_tmp * x1_tmp)) / 2.0);
+
+x4_tmp_tmp := x1_tmp_tmp + tHold;
+x4_tmp_tmp_0 := x4_tmp_tmp + fRampTime_s;
+x4_tmp := x4_tmp_tmp_0 + fHoldPositionTime_s;
+x1_tmp := x4_tmp + fRampTime_s;
+x4 := x1_tmp - x4_tmp;
+x4 := (fPositionSetpoint_ms - (x4 * fStartVelocity_m)) + (((slopeRetr / fRampTime_s) * (x4 * x4)) / 2.0);
+
+IF Error = 1 THEN 
+    fPositionReference_m := fStartPosition_m;
+    fVelocityReference_ms := fStartVelocity_m;
+ELSIF (fClock_s >= 0.0) AND (fClock_s < fTimeBeforeStarting_s) THEN 
+    fPositionReference_m := fStartPosition_m;
+    fVelocityReference_ms := fStartVelocity_m;
+ELSIF (fClock_s >= fTimeBeforeStarting_s) AND (fClock_s < x1_tmp_tmp) THEN 
+    slopeRetr := fClock_s - fTimeBeforeStarting_s;
+    fPositionReference_m := ((slopeRetr * fStartVelocity_m) + fStartPosition_m) - ((x1_tmp_0 * (slopeRetr * slopeRetr)) / 2.0);
+    fVelocityReference_ms := fStartVelocity_m - (x1_tmp_0 * slopeRetr);
+ELSIF (fClock_s >= x1_tmp_tmp) AND (fClock_s < x4_tmp_tmp) THEN 
+    fPositionReference_m := ((fClock_s - x1_tmp_tmp) * fVelocitySetpoint_m) + x1;
+    fVelocityReference_ms := fVelocitySetpoint_m;
+ELSIF (fClock_s >= x4_tmp_tmp) AND (fClock_s < x4_tmp_tmp_0) THEN 
+    slopeRetr := fClock_s - x4_tmp_tmp;
+    fPositionReference_m := ((((x4_tmp_tmp - x1_tmp_tmp) * fVelocitySetpoint_m) + x1) + (slopeRetr * fVelocitySetpoint_m)) + ((x1_tmp_0 * (slopeRetr * slopeRetr)) / 2.0);
+    fVelocityReference_ms := (slopeRetr * (slopeExt / fRampTime_s)) + fVelocitySetpoint_m;
+ELSIF (fClock_s >= x4_tmp_tmp_0) AND (fClock_s < x4_tmp) THEN 
+    fPositionReference_m := fPositionSetpoint_ms;
+    fVelocityReference_ms := fStartVelocity_m;
+ELSIF (fClock_s >= x4_tmp) AND (fClock_s < x1_tmp) THEN 
+    slopeExt := fClock_s - x4_tmp;
+    slopeRetr := slopeRetr / fRampTime_s;
+    fPositionReference_m := (fPositionSetpoint_ms - (slopeExt * fStartVelocity_m)) + ((slopeRetr * (slopeExt * slopeExt)) / 2.0);
+    fVelocityReference_ms := (slopeExt * slopeRetr) + fStartVelocity_m;
+ELSE 
+    x1_tmp_0 := x1_tmp + tHold;
+
+    IF (fClock_s >= x1_tmp) AND (fClock_s < x1_tmp_0) THEN 
+        fPositionReference_m := x4 - ((fClock_s - x1_tmp) * fVelocitySetpoint_m);
+        fVelocityReference_ms :=  -fVelocitySetpoint_m;
+    ELSIF (fClock_s >= x1_tmp_0) AND (fClock_s < (((((((fTimeBeforeStarting_s + fRampTime_s) + tHold) + fRampTime_s) + fHoldPositionTime_s) + fRampTime_s) + tHold) + fRampTime_s)) THEN 
+        slopeExt := fClock_s - x1_tmp_0;
+        slopeRetr := slopeRetr / fRampTime_s;
+        fPositionReference_m := ((x4 - ((x1_tmp_0 - x1_tmp) * fVelocitySetpoint_m)) - (slopeExt * fVelocitySetpoint_m)) - ((slopeRetr * (slopeExt * slopeExt)) / 2.0);
+        fVelocityReference_ms := ( -fVelocitySetpoint_m) - (slopeExt * slopeRetr);
+    ELSE 
+        fPositionReference_m := fStartPosition_m;
+        fVelocityReference_ms := fStartVelocity_m;
+    END_IF;
+
+END_IF;
+
+fTotalMotionTime_s := ((((((fTimeBeforeStarting_s + fRampTime_s) + tHold) + fRampTime_s) + fHoldPositionTime_s) + fRampTime_s) + tHold) + fRampTime_s;
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_MotionReferenceGenerator_limit">
+      <LineId Id="232" Count="0" />
+      <LineId Id="243" Count="2" />
+      <LineId Id="233" Count="0" />
+      <LineId Id="221" Count="3" />
+      <LineId Id="228" Count="1" />
+      <LineId Id="218" Count="0" />
+      <LineId Id="220" Count="0" />
+      <LineId Id="10" Count="2" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="18" Count="1" />
+      <LineId Id="21" Count="1" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="36" Count="3" />
+      <LineId Id="184" Count="0" />
+      <LineId Id="42" Count="6" />
+      <LineId Id="51" Count="1" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="58" Count="1" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="66" Count="1" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="75" Count="1" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="83" Count="1" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="92" Count="1" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="100" Count="1" />
+      <LineId Id="104" Count="1" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="110" Count="4" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="121" Count="1" />
+      <LineId Id="125" Count="1" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="131" Count="1" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="139" Count="3" />
+      <LineId Id="146" Count="1" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

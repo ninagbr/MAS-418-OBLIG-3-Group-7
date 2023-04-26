@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="G_VirtualControlBox" Id="{0ca5c0a4-0d20-4ce5-afdb-fe579593098c}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	bOnSelector : BOOL;
+	bAutoSelector : BOOL;
+	bStartButton : BOOL;
+	bStopButton : BOOL;
+	fJoystickY : LREAL;
+	bGreenLight : BOOL;
+	bRedLight : BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

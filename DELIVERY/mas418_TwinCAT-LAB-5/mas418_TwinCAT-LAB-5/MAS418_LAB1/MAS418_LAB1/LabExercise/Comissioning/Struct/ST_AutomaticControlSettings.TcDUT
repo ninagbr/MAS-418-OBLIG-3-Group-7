@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_AutomaticControlSettings" Id="{24ab6670-c2a6-4a82-a20e-3e26608d967f}">
+    <Declaration><![CDATA[TYPE ST_AutomaticControlSettings :
+STRUCT
+	bEnableVelocityFeedForwardControl	: BOOL;
+	bEnableClosedLoopPositionControl	: BOOL;
+	bEnableIntegralController 			: BOOL;
+	bEnableActiveDamping 				: BOOL;	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

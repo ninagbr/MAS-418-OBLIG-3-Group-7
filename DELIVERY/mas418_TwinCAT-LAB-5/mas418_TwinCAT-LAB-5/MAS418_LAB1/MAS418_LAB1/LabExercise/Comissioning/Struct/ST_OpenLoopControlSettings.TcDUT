@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_OpenLoopControlSettings" Id="{d3ff122b-2654-4a8f-b887-57a35b2cf102}">
+    <Declaration><![CDATA[TYPE ST_OpenLoopControlSettings :
+STRUCT
+	fBoreArea 			: LREAL := 0.0033183;
+	fAnnulusArea 		: LREAL := 0.0023562;
+	fMaxFlowCapacity 	: LREAL := 30; //[l/min]
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,190 @@
+[0.000000] (-) TimerEvent: {}
+[0.005974] (-) JobUnselected: {'identifier': 'ads'}
+[0.006202] (-) JobUnselected: {'identifier': 'ads_example'}
+[0.006321] (-) JobUnselected: {'identifier': 'crane_controller'}
+[0.006429] (-) JobUnselected: {'identifier': 'crane_interfaces'}
+[0.006534] (-) JobUnselected: {'identifier': 'crane_simulator'}
+[0.006801] (-) JobUnselected: {'identifier': 'crane_visualization'}
+[0.006936] (-) JobUnselected: {'identifier': 'joint_state_publisher'}
+[0.007041] (-) JobUnselected: {'identifier': 'joint_state_publisher_gui'}
+[0.007143] (-) JobUnselected: {'identifier': 'xacro'}
+[0.007256] (ads_example_package) JobQueued: {'identifier': 'ads_example_package', 'dependencies': OrderedDict([('crane_interfaces', '/home/nils/Desktop/oblig3_ws/install/crane_interfaces')])}
+[0.007380] (ads_example_package) JobStarted: {'identifier': 'ads_example_package'}
+[0.080132] (ads_example_package) JobProgress: {'identifier': 'ads_example_package', 'progress': 'cmake'}
+[0.081529] (ads_example_package) JobProgress: {'identifier': 'ads_example_package', 'progress': 'build'}
+[0.084843] (ads_example_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/nils/Desktop/oblig3_ws/build/ads_example_package', '--', '-j3', '-l3'], 'cwd': '/home/nils/Desktop/oblig3_ws/build/ads_example_package', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_GB:en'), ('USER', 'nils'), ('LC_TIME', 'nb_NO.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/nils'), ('OLDPWD', '/home/nils/Desktop/oblig3_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'nb_NO.UTF-8'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1094'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=8d936be1d51bfa40c2a37901643e96b5'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/nils/Desktop/oblig3_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'nils'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'nils'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/nils/Desktop/oblig3_ws/install/xacro/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/nils-VirtualBox:@/tmp/.ICE-unix/1094,unix/nils-VirtualBox:/tmp/.ICE-unix/1094'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'nb_NO.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/53c8ed3d_2a8d_4679_85b9_7ba7a8d1a31c'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'nb_NO.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.3DDL31'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.233'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/nils/Desktop/oblig3_ws/install/xacro:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/crane_visualization:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator:/home/nils/Desktop/oblig3_ws/install/crane_controller:/home/nils/Desktop/oblig3_ws/install/crane_interfaces:/home/nils/Desktop/oblig3_ws/install/ads_example_package'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nb_NO.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'nb_NO.UTF-8'), ('LC_IDENTIFICATION', 'nb_NO.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/nils/Desktop/oblig3_ws/build/ads_example_package'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=8d936be1d51bfa40c2a37901643e96b5'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/nils/Desktop/oblig3_ws/install/xacro/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'nb_NO.UTF-8'), ('LC_PAPER', 'nb_NO.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/nils/Desktop/oblig3_ws/install/crane_interfaces:/home/nils/Desktop/oblig3_ws/install/xacro:/home/nils/Desktop/oblig3_ws/install/crane_visualization:/home/nils/Desktop/oblig3_ws/install/crane_controller:/home/nils/Desktop/oblig3_ws/install/ads_example_package:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator')]), 'shell': False}
+[0.106962] (-) TimerEvent: {}
+[0.207698] (-) TimerEvent: {}
+[0.308572] (-) TimerEvent: {}
+[0.350934] (ads_example_package) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ads_node\x1b[0m\n'}
+[0.408854] (-) TimerEvent: {}
+[0.450961] (ads_example_package) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ads_node.dir/src/ads_node.cpp.o\x1b[0m\n'}
+[0.509098] (-) TimerEvent: {}
+[0.609954] (-) TimerEvent: {}
+[0.710942] (-) TimerEvent: {}
+[0.811798] (-) TimerEvent: {}
+[0.912511] (-) TimerEvent: {}
+[1.013503] (-) TimerEvent: {}
+[1.114592] (-) TimerEvent: {}
+[1.216000] (-) TimerEvent: {}
+[1.316706] (-) TimerEvent: {}
+[1.417476] (-) TimerEvent: {}
+[1.518349] (-) TimerEvent: {}
+[1.619332] (-) TimerEvent: {}
+[1.719967] (-) TimerEvent: {}
+[1.820537] (-) TimerEvent: {}
+[1.921162] (-) TimerEvent: {}
+[2.021712] (-) TimerEvent: {}
+[2.122305] (-) TimerEvent: {}
+[2.223027] (-) TimerEvent: {}
+[2.324259] (-) TimerEvent: {}
+[2.424908] (-) TimerEvent: {}
+[2.525688] (-) TimerEvent: {}
+[2.626563] (-) TimerEvent: {}
+[2.727509] (-) TimerEvent: {}
+[2.828125] (-) TimerEvent: {}
+[2.928680] (-) TimerEvent: {}
+[3.029247] (-) TimerEvent: {}
+[3.129834] (-) TimerEvent: {}
+[3.230434] (-) TimerEvent: {}
+[3.331237] (-) TimerEvent: {}
+[3.431807] (-) TimerEvent: {}
+[3.532413] (-) TimerEvent: {}
+[3.633240] (-) TimerEvent: {}
+[3.733874] (-) TimerEvent: {}
+[3.834420] (-) TimerEvent: {}
+[3.935001] (-) TimerEvent: {}
+[4.035480] (-) TimerEvent: {}
+[4.136114] (-) TimerEvent: {}
+[4.236712] (-) TimerEvent: {}
+[4.337270] (-) TimerEvent: {}
+[4.437871] (-) TimerEvent: {}
+[4.538458] (-) TimerEvent: {}
+[4.639276] (-) TimerEvent: {}
+[4.739911] (-) TimerEvent: {}
+[4.840689] (-) TimerEvent: {}
+[4.941690] (-) TimerEvent: {}
+[5.042331] (-) TimerEvent: {}
+[5.143008] (-) TimerEvent: {}
+[5.243693] (-) TimerEvent: {}
+[5.344397] (-) TimerEvent: {}
+[5.445187] (-) TimerEvent: {}
+[5.545984] (-) TimerEvent: {}
+[5.650438] (-) TimerEvent: {}
+[5.753369] (-) TimerEvent: {}
+[5.853953] (-) TimerEvent: {}
+[5.954671] (-) TimerEvent: {}
+[6.055980] (-) TimerEvent: {}
+[6.156530] (-) TimerEvent: {}
+[6.257145] (-) TimerEvent: {}
+[6.357691] (-) TimerEvent: {}
+[6.458223] (-) TimerEvent: {}
+[6.558818] (-) TimerEvent: {}
+[6.659596] (-) TimerEvent: {}
+[6.762859] (-) TimerEvent: {}
+[6.863573] (-) TimerEvent: {}
+[6.964122] (-) TimerEvent: {}
+[7.064712] (-) TimerEvent: {}
+[7.165273] (-) TimerEvent: {}
+[7.265836] (-) TimerEvent: {}
+[7.366372] (-) TimerEvent: {}
+[7.467045] (-) TimerEvent: {}
+[7.567537] (-) TimerEvent: {}
+[7.668126] (-) TimerEvent: {}
+[7.768801] (-) TimerEvent: {}
+[7.869350] (-) TimerEvent: {}
+[7.969933] (-) TimerEvent: {}
+[8.071536] (-) TimerEvent: {}
+[8.172183] (-) TimerEvent: {}
+[8.272800] (-) TimerEvent: {}
+[8.373321] (-) TimerEvent: {}
+[8.473829] (-) TimerEvent: {}
+[8.574319] (-) TimerEvent: {}
+[8.674916] (-) TimerEvent: {}
+[8.775461] (-) TimerEvent: {}
+[8.876065] (-) TimerEvent: {}
+[8.976592] (-) TimerEvent: {}
+[9.077129] (-) TimerEvent: {}
+[9.177691] (-) TimerEvent: {}
+[9.278286] (-) TimerEvent: {}
+[9.378983] (-) TimerEvent: {}
+[9.479728] (-) TimerEvent: {}
+[9.580215] (-) TimerEvent: {}
+[9.680722] (-) TimerEvent: {}
+[9.781383] (-) TimerEvent: {}
+[9.881990] (-) TimerEvent: {}
+[9.982466] (-) TimerEvent: {}
+[10.083223] (-) TimerEvent: {}
+[10.183614] (-) TimerEvent: {}
+[10.284196] (-) TimerEvent: {}
+[10.384767] (-) TimerEvent: {}
+[10.485328] (-) TimerEvent: {}
+[10.585857] (-) TimerEvent: {}
+[10.686478] (-) TimerEvent: {}
+[10.788540] (-) TimerEvent: {}
+[10.889549] (-) TimerEvent: {}
+[10.990222] (-) TimerEvent: {}
+[11.091787] (-) TimerEvent: {}
+[11.192386] (-) TimerEvent: {}
+[11.292937] (-) TimerEvent: {}
+[11.393522] (-) TimerEvent: {}
+[11.494070] (-) TimerEvent: {}
+[11.594619] (-) TimerEvent: {}
+[11.695294] (-) TimerEvent: {}
+[11.795793] (-) TimerEvent: {}
+[11.899512] (-) TimerEvent: {}
+[12.000049] (-) TimerEvent: {}
+[12.100713] (-) TimerEvent: {}
+[12.201198] (-) TimerEvent: {}
+[12.301608] (-) TimerEvent: {}
+[12.402129] (-) TimerEvent: {}
+[12.502617] (-) TimerEvent: {}
+[12.603452] (-) TimerEvent: {}
+[12.704066] (-) TimerEvent: {}
+[12.804567] (-) TimerEvent: {}
+[12.905100] (-) TimerEvent: {}
+[13.005659] (-) TimerEvent: {}
+[13.106174] (-) TimerEvent: {}
+[13.206848] (-) TimerEvent: {}
+[13.307662] (-) TimerEvent: {}
+[13.408166] (-) TimerEvent: {}
+[13.508803] (-) TimerEvent: {}
+[13.609309] (-) TimerEvent: {}
+[13.709749] (-) TimerEvent: {}
+[13.810230] (-) TimerEvent: {}
+[13.910760] (-) TimerEvent: {}
+[14.011488] (-) TimerEvent: {}
+[14.060043] (ads_example_package) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable ads_node\x1b[0m\n'}
+[14.111681] (-) TimerEvent: {}
+[14.212302] (-) TimerEvent: {}
+[14.312806] (-) TimerEvent: {}
+[14.413333] (-) TimerEvent: {}
+[14.513978] (-) TimerEvent: {}
+[14.537816] (ads_example_package) StdoutLine: {'line': b'[100%] Built target ads_node\n'}
+[14.571293] (ads_example_package) CommandEnded: {'returncode': 0}
+[14.614182] (-) TimerEvent: {}
+[14.627843] (ads_example_package) JobProgress: {'identifier': 'ads_example_package', 'progress': 'install'}
+[14.645841] (ads_example_package) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/nils/Desktop/oblig3_ws/build/ads_example_package'], 'cwd': '/home/nils/Desktop/oblig3_ws/build/ads_example_package', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_GB:en'), ('USER', 'nils'), ('LC_TIME', 'nb_NO.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/nils'), ('OLDPWD', '/home/nils/Desktop/oblig3_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'nb_NO.UTF-8'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1094'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=8d936be1d51bfa40c2a37901643e96b5'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/nils/Desktop/oblig3_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'nils'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'nils'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/nils/Desktop/oblig3_ws/install/xacro/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/nils-VirtualBox:@/tmp/.ICE-unix/1094,unix/nils-VirtualBox:/tmp/.ICE-unix/1094'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'nb_NO.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/53c8ed3d_2a8d_4679_85b9_7ba7a8d1a31c'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'nb_NO.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.3DDL31'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.233'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/nils/Desktop/oblig3_ws/install/xacro:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/crane_visualization:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator:/home/nils/Desktop/oblig3_ws/install/crane_controller:/home/nils/Desktop/oblig3_ws/install/crane_interfaces:/home/nils/Desktop/oblig3_ws/install/ads_example_package'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nb_NO.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'nb_NO.UTF-8'), ('LC_IDENTIFICATION', 'nb_NO.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/nils/Desktop/oblig3_ws/build/ads_example_package'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=8d936be1d51bfa40c2a37901643e96b5'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/nils/Desktop/oblig3_ws/install/xacro/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'nb_NO.UTF-8'), ('LC_PAPER', 'nb_NO.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/nils/Desktop/oblig3_ws/install/crane_interfaces:/home/nils/Desktop/oblig3_ws/install/xacro:/home/nils/Desktop/oblig3_ws/install/crane_visualization:/home/nils/Desktop/oblig3_ws/install/crane_controller:/home/nils/Desktop/oblig3_ws/install/ads_example_package:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/crane_simulator')]), 'shell': False}
+[14.662017] (ads_example_package) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[14.662715] (ads_example_package) StdoutLine: {'line': b'-- Installing: /home/nils/Desktop/oblig3_ws/install/ads_example_package/lib/ads_example_package/ads_node\n'}
+[14.668910] (ads_example_package) StdoutLine: {'line': b'-- Set runtime path of "/home/nils/Desktop/oblig3_ws/install/ads_example_package/lib/ads_example_package/ads_node" to ""\n'}
+[14.669387] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ament_index/resource_index/package_run_dependencies/ads_example_package\n'}
+[14.669649] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ament_index/resource_index/parent_prefix_path/ads_example_package\n'}
+[14.669813] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/environment/ament_prefix_path.sh\n'}
+[14.670066] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/environment/ament_prefix_path.dsv\n'}
+[14.670512] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/environment/path.sh\n'}
+[14.671093] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/environment/path.dsv\n'}
+[14.671617] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/local_setup.bash\n'}
+[14.671900] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/local_setup.sh\n'}
+[14.672076] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/local_setup.zsh\n'}
+[14.672230] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/local_setup.dsv\n'}
+[14.672390] (ads_example_package) StdoutLine: {'line': b'-- Installing: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/package.dsv\n'}
+[14.672623] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ament_index/resource_index/packages/ads_example_package\n'}
+[14.672776] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/cmake/ads_example_packageConfig.cmake\n'}
+[14.672924] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/cmake/ads_example_packageConfig-version.cmake\n'}
+[14.673073] (ads_example_package) StdoutLine: {'line': b'-- Up-to-date: /home/nils/Desktop/oblig3_ws/install/ads_example_package/share/ads_example_package/package.xml\n'}
+[14.674813] (ads_example_package) CommandEnded: {'returncode': 0}
+[14.725759] (-) TimerEvent: {}
+[14.828128] (-) TimerEvent: {}
+[14.873462] (ads_example_package) JobEnded: {'identifier': 'ads_example_package', 'rc': 0}
+[14.879807] (-) EventReactorShutdown: {}

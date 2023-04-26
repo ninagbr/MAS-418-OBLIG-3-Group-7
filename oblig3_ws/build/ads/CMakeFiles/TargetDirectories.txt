@@ -1,0 +1,11 @@
+/home/nils/Desktop/oblig3_ws/build/ads/CMakeFiles/edit_cache.dir
+/home/nils/Desktop/oblig3_ws/build/ads/CMakeFiles/rebuild_cache.dir
+/home/nils/Desktop/oblig3_ws/build/ads/AdsLib/CMakeFiles/ads.dir
+/home/nils/Desktop/oblig3_ws/build/ads/AdsLib/CMakeFiles/edit_cache.dir
+/home/nils/Desktop/oblig3_ws/build/ads/AdsLib/CMakeFiles/rebuild_cache.dir
+/home/nils/Desktop/oblig3_ws/build/ads/AdsLibTest/CMakeFiles/AdsLibTest.bin.dir
+/home/nils/Desktop/oblig3_ws/build/ads/AdsLibTest/CMakeFiles/edit_cache.dir
+/home/nils/Desktop/oblig3_ws/build/ads/AdsLibTest/CMakeFiles/rebuild_cache.dir
+/home/nils/Desktop/oblig3_ws/build/ads/example/CMakeFiles/example.bin.dir
+/home/nils/Desktop/oblig3_ws/build/ads/example/CMakeFiles/edit_cache.dir
+/home/nils/Desktop/oblig3_ws/build/ads/example/CMakeFiles/rebuild_cache.dir

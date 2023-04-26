@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <Itf Name="I_ControlBox" Id="{5c741758-32b4-4a5c-b560-a63e85cb966e}">
+    <Declaration><![CDATA[INTERFACE I_ControlBox
+]]></Declaration>
+    <Method Name="Joystick" Id="{19e2a514-84b4-4626-9e10-2ea6911d1f91}">
+      <Declaration><![CDATA[METHOD Joystick
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+VAR_OUTPUT
+	fJoystickY : LREAL;
+END_VAR
+
+]]></Declaration>
+    </Method>
+    <Method Name="Lamps" Id="{705895e4-a55f-468b-bff0-8eb1edb6385c}">
+      <Declaration><![CDATA[METHOD Lamps 
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+
+]]></Declaration>
+    </Method>
+    <Method Name="ModeSelector" Id="{602723b8-14f8-4c4d-9a3a-6c04bf063cdf}">
+      <Declaration><![CDATA[METHOD ModeSelector 
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	eMode : E_Mode;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="PushButtons" Id="{29a30b71-236c-4f52-a1fd-80494c25ecbb}">
+      <Declaration><![CDATA[METHOD PushButtons
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+VAR_OUTPUT
+	bStart : BOOL;
+	bStop : BOOL;
+END_VAR]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_CraneKinematics" Id="{dbf07637-3e78-4fbb-aa3d-1f0b70036cb1}">
+    <Declaration><![CDATA[TYPE ST_CraneKinematics :
+STRUCT
+	ABx : LREAL := 0.427;
+	ABy : LREAL := 1.057;
+	ACx : LREAL := 0.49484;
+	ACy : LREAL := 0.133;
+	fBoomLength : LREAL := 3.4;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

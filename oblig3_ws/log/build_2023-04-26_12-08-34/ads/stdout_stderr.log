@@ -1,0 +1,44 @@
+-- The C compiler identification is GNU 11.3.0
+-- The CXX compiler identification is GNU 11.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/nils/Desktop/oblig3_ws/build/ads
+[  4%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/AdsFile.cpp.o[0m
+[ 14%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/AdsDevice.cpp.o[0m
+[ 14%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/AdsDef.cpp.o[0m
+[ 19%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/AdsLib.cpp.o[0m
+[ 23%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/Frame.cpp.o[0m
+[ 28%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/LicenseAccess.cpp.o[0m
+[ 33%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/Log.cpp.o[0m
+[ 38%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/RouterAccess.cpp.o[0m
+[ 42%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/RTimeAccess.cpp.o[0m
+[ 47%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/Sockets.cpp.o[0m
+[ 52%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/standalone/AdsLib.cpp.o[0m
+[ 57%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/standalone/AmsConnection.cpp.o[0m
+[ 61%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/standalone/AmsNetId.cpp.o[0m
+[ 66%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/standalone/AmsPort.cpp.o[0m
+[ 71%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/standalone/AmsRouter.cpp.o[0m
+[ 76%] [32mBuilding CXX object AdsLib/CMakeFiles/ads.dir/standalone/NotificationDispatcher.cpp.o[0m
+[ 80%] [32m[1mLinking CXX shared library libads.so[0m
+[ 80%] Built target ads
+[ 85%] [32mBuilding CXX object AdsLibTest/CMakeFiles/AdsLibTest.bin.dir/main.cpp.o[0m
+[ 90%] [32mBuilding CXX object example/CMakeFiles/example.bin.dir/example.cpp.o[0m
+[ 95%] [32m[1mLinking CXX executable example.bin[0m
+[ 95%] Built target example.bin
+[100%] [32m[1mLinking CXX executable AdsLibTest.bin[0m
+[100%] Built target AdsLibTest.bin

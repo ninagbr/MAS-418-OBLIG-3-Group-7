@@ -1,0 +1,4 @@
+source;share/crane_controller/local_setup.bash
+source;share/crane_controller/local_setup.dsv
+source;share/crane_controller/local_setup.sh
+source;share/crane_controller/local_setup.zsh

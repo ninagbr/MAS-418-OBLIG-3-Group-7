@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="G_Simulator" Id="{7f848778-065f-4410-a7b4-047e2d0f684b}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	bSimulatorOn : BOOL;
+	fPistonSidePressure : LREAL;
+	fRodSidePressure 	: LREAL;
+	fPistonPosition 	: LREAL;
+	stPistonAnimation 	: ST_RelativeMovement;
+	fBoomAngle 			: LREAL;
+	stBoomAnimation 	: ST_RelativeMovement;
+	fBoomAnimation 		: LREAL;
+	fBoomAngleDeg 		: LREAL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

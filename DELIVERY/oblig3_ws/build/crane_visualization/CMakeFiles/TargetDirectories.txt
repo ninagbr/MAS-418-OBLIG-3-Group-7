@@ -1,0 +1,9 @@
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/uninstall.dir
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/crane_visualization_uninstall.dir
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/test.dir
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/edit_cache.dir
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/rebuild_cache.dir
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/list_install_components.dir
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/install.dir
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/install/local.dir
+/home/nils/Desktop/oblig3_ws/build/crane_visualization/CMakeFiles/install/strip.dir

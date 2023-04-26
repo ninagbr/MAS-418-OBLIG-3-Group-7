@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_RealControlBox" Id="{37de488e-61db-47f0-ae9a-a602c45471dd}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RealControlBox IMPLEMENTS I_ControlBox
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Joystick" Id="{969d1bf9-8f4a-4ed0-b706-e8d8185bf738}">
+      <Declaration><![CDATA[METHOD Joystick
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+VAR_OUTPUT
+	fJoystickY : LREAL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Lamps" Id="{4fdeda89-2fc2-4bda-9219-00e0aed099ce}">
+      <Declaration><![CDATA[METHOD Lamps 
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// To Do LAB #12]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ModeSelector" Id="{c1118847-ecf0-4ef4-a589-62e6a17557ee}">
+      <Declaration><![CDATA[METHOD ModeSelector 
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	eMode : E_Mode;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// To Do LAB #12
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="PushButtons" Id="{d7dda8b1-708c-4ae4-b6f1-5856535cda99}">
+      <Declaration><![CDATA[METHOD PushButtons
+VAR_INPUT
+	eMode 	: E_Mode;
+	eStatus : E_Status;
+END_VAR
+VAR_OUTPUT
+	bStart : BOOL;
+	bStop : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_RealControlBox">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_RealControlBox.Joystick">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_RealControlBox.Lamps">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_RealControlBox.ModeSelector">
+      <LineId Id="39" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_RealControlBox.PushButtons">
+      <LineId Id="6" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

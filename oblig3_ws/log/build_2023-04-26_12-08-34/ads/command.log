@@ -1,0 +1,4 @@
+Invoking command in '/home/nils/Desktop/oblig3_ws/build/ads': /usr/bin/cmake /home/nils/Desktop/oblig3_ws/src/ros2-examples-ads/ADS -DCMAKE_INSTALL_PREFIX=/home/nils/Desktop/oblig3_ws/install/ads
+Invoked command in '/home/nils/Desktop/oblig3_ws/build/ads' returned '0': /usr/bin/cmake /home/nils/Desktop/oblig3_ws/src/ros2-examples-ads/ADS -DCMAKE_INSTALL_PREFIX=/home/nils/Desktop/oblig3_ws/install/ads
+Invoking command in '/home/nils/Desktop/oblig3_ws/build/ads': /usr/bin/cmake --build /home/nils/Desktop/oblig3_ws/build/ads -- -j3 -l3
+Invoked command in '/home/nils/Desktop/oblig3_ws/build/ads' returned '0': /usr/bin/cmake --build /home/nils/Desktop/oblig3_ws/build/ads -- -j3 -l3

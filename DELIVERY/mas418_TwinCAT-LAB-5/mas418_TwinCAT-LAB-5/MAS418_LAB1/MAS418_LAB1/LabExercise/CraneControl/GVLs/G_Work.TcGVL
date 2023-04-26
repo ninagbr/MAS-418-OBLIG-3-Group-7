@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="G_Work" Id="{81b36d32-4934-4a29-831b-336ae7ff3ebd}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	eMode 			: E_Mode;
+	eStatus 		: E_Status;
+	fJoystickY 		: LREAL;
+	bFault 			: BOOL;
+	bStartButton 	: BOOL;
+	bStopButton 	: BOOL;
+	fControlOutputNormalized : LREAL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

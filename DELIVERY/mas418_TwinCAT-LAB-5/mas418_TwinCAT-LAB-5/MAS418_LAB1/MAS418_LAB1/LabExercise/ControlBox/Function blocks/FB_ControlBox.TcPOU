@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_ControlBox" Id="{23a5fbb3-746f-49da-9ce4-8057d9ad01ee}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ControlBox
+VAR_INPUT
+	bRealControlBox : BOOL;
+	eStatus : E_Status;
+END_VAR
+VAR_OUTPUT
+	eMode : E_Mode;
+END_VAR
+VAR
+	fbVirtualControlBox : FB_VirtualControlBox;
+	fbRealControlBox : FB_RealControlBox;
+	fbSelectedControlBox : I_ControlBox := fbVirtualControlBox;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bRealControlBox THEN
+	fbSelectedControlBox := fbRealControlBox;
+ELSE
+	fbSelectedControlBox := fbVirtualControlBox;
+END_IF	
+	
+fbSelectedControlBox.ModeSelector(
+	eMode => eMode
+);
+
+fbSelectedControlBox.PushButtons(
+	eMode := eMode,
+	eStatus := eStatus,
+	bStart => G_Work.bStartButton,
+	bStop => G_Work.bStopButton 	
+);
+
+fbSelectedControlBox.Lamps(
+	eMode := eMode,
+	eStatus := eStatus
+);
+
+fbSelectedControlBox.Joystick(
+	eMode := eMode,
+	eStatus := eStatus,
+	fJoystickY => G_Work.fJoystickY
+);
+
+//IF G_Work.eStatus = E_Status.Running THEN
+//	G_VirtualControlBox.bGreenLight :=  TRUE;
+//ELSE
+//	G_VirtualControlBox.bGreenLight :=  FALSE;
+//END_IF
+
+//IF G_Work.eStatus = E_Status.Fault THEN
+//	G_VirtualControlBox.bRedLight :=  TRUE;
+//ELSE
+//	G_VirtualControlBox.bRedLight :=  FALSE;
+//END_IF
+
+
+
+
+
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ControlBox">
+      <LineId Id="311" Count="8" />
+      <LineId Id="394" Count="0" />
+      <LineId Id="410" Count="0" />
+      <LineId Id="416" Count="0" />
+      <LineId Id="415" Count="0" />
+      <LineId Id="418" Count="1" />
+      <LineId Id="414" Count="0" />
+      <LineId Id="375" Count="1" />
+      <LineId Id="392" Count="1" />
+      <LineId Id="391" Count="0" />
+      <LineId Id="406" Count="3" />
+      <LineId Id="413" Count="0" />
+      <LineId Id="377" Count="0" />
+      <LineId Id="345" Count="0" />
+      <LineId Id="352" Count="9" />
+      <LineId Id="322" Count="7" />
+      <LineId Id="148" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

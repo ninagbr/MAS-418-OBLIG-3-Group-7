@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_OpenLoopControl" Id="{f423ba7b-c166-485b-8b1a-777fcd38eb4f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_OpenLoopControl
+VAR_INPUT
+	bEnable		: BOOL;
+	fInput_ms	: LREAL;
+	stParam 	: ST_Parameters;
+END_VAR
+VAR_OUTPUT
+	fNormalizedOutput: LREAL;
+END_VAR
+VAR
+	fFlowReference_m3s : LREAL;
+	fM3sToLmin : LREAL := 60000;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF fInput_ms >= 0.0 THEN 
+    fFlowReference_m3s := stparam.stOpenLoopControlSettings.fBoreArea * fInput_ms;
+ELSE 
+    fFlowReference_m3s := fInput_ms * stparam.stOpenLoopControlSettings.fAnnulusArea;
+END_IF;
+
+IF bEnable THEN 
+    fNormalizedOutput := (fM3sToLmin * fFlowReference_m3s) / stParam.stOpenLoopControlSettings.fMaxFlowCapacity;
+ELSE 
+    fNormalizedOutput := 0.0;
+END_IF;
+
+IF fNormalizedOutput > 1.0 THEN 
+    fNormalizedOutput := 1.0;
+ELSIF fNormalizedOutput < -1.0 THEN 
+    fNormalizedOutput := -1.0;
+END_IF;]]></ST>
+    </Implementation>
+    <LineIds Name="FB_OpenLoopControl">
+      <LineId Id="11" Count="4" />
+      <LineId Id="21" Count="1" />
+      <LineId Id="26" Count="1" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="52" Count="1" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

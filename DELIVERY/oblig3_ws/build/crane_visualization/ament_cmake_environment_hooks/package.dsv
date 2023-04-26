@@ -1,0 +1,4 @@
+source;share/crane_visualization/local_setup.bash
+source;share/crane_visualization/local_setup.dsv
+source;share/crane_visualization/local_setup.sh
+source;share/crane_visualization/local_setup.zsh

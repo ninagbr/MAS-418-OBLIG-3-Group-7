@@ -1,0 +1,42 @@
+[4.602s] Invoking command in '/home/nils/Desktop/oblig3_ws/src/joint_state_publisher_gui': AMENT_PREFIX_PATH=/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/xacro:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/crane_visualization:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/crane_simulator:/home/nils/Desktop/oblig3_ws/install/crane_controller:/home/nils/Desktop/oblig3_ws/install/crane_interfaces:/home/nils/Desktop/oblig3_ws/install/ads_example_package PYTHONPATH=/home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/prefix_override:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/xacro/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/joint_state_publisher_gui build --build-base /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build install --record /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/install.log --single-version-externally-managed
+[7.048s] running egg_info
+[7.050s] creating ../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info
+[7.051s] writing ../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info/PKG-INFO
+[7.051s] writing dependency_links to ../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info/dependency_links.txt
+[7.053s] writing entry points to ../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info/entry_points.txt
+[7.053s] writing requirements to ../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info/requires.txt
+[7.053s] writing top-level names to ../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info/top_level.txt
+[7.055s] writing manifest file '../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info/SOURCES.txt'
+[7.058s] reading manifest file '../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info/SOURCES.txt'
+[7.058s] adding license file 'LICENSE'
+[7.060s] writing manifest file '../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info/SOURCES.txt'
+[7.061s] running build
+[7.061s] running build_py
+[7.062s] creating /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build
+[7.062s] creating /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build/lib
+[7.062s] creating /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build/lib/joint_state_publisher_gui
+[7.063s] copying joint_state_publisher_gui/joint_state_publisher_gui.py -> /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build/lib/joint_state_publisher_gui
+[7.063s] copying joint_state_publisher_gui/__init__.py -> /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build/lib/joint_state_publisher_gui
+[7.063s] copying joint_state_publisher_gui/flow_layout.py -> /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build/lib/joint_state_publisher_gui
+[7.064s] running install
+[7.064s] running install_lib
+[7.066s] creating /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages/joint_state_publisher_gui
+[7.066s] copying /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build/lib/joint_state_publisher_gui/joint_state_publisher_gui.py -> /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages/joint_state_publisher_gui
+[7.067s] copying /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build/lib/joint_state_publisher_gui/__init__.py -> /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages/joint_state_publisher_gui
+[7.067s] copying /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build/lib/joint_state_publisher_gui/flow_layout.py -> /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages/joint_state_publisher_gui
+[7.068s] byte-compiling /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages/joint_state_publisher_gui/joint_state_publisher_gui.py to joint_state_publisher_gui.cpython-310.pyc
+[7.075s] byte-compiling /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages/joint_state_publisher_gui/__init__.py to __init__.cpython-310.pyc
+[7.076s] byte-compiling /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages/joint_state_publisher_gui/flow_layout.py to flow_layout.cpython-310.pyc
+[7.076s] running install_data
+[7.078s] creating /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/share/ament_index
+[7.078s] creating /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/share/ament_index/resource_index
+[7.079s] creating /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/share/ament_index/resource_index/packages
+[7.079s] copying resource/joint_state_publisher_gui -> /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/share/ament_index/resource_index/packages
+[7.079s] copying package.xml -> /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/share/joint_state_publisher_gui
+[7.080s] running install_egg_info
+[7.086s] Copying ../../build/joint_state_publisher_gui/joint_state_publisher_gui.egg-info to /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages/joint_state_publisher_gui-2.3.0-py3.10.egg-info
+[7.088s] running install_scripts
+[7.178s] Installing joint_state_publisher_gui script to /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/joint_state_publisher_gui
+[7.178s] Installing state_publisher script to /home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/joint_state_publisher_gui
+[7.186s] writing list of installed files to '/home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/install.log'
+[7.412s] Invoked command in '/home/nils/Desktop/oblig3_ws/src/joint_state_publisher_gui' returned '0': AMENT_PREFIX_PATH=/home/nils/Desktop/oblig3_ws/install/joint_state_publisher:/home/nils/Desktop/oblig3_ws/install/xacro:/opt/ros/humble:/home/nils/Desktop/oblig3_ws/install/crane_visualization:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui:/home/nils/Desktop/oblig3_ws/install/crane_simulator:/home/nils/Desktop/oblig3_ws/install/crane_controller:/home/nils/Desktop/oblig3_ws/install/crane_interfaces:/home/nils/Desktop/oblig3_ws/install/ads_example_package PYTHONPATH=/home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/prefix_override:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/xacro/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages:/home/nils/Desktop/oblig3_ws/install/joint_state_publisher_gui/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages:/home/nils/Desktop/oblig3_ws/install/crane_interfaces/local/lib/python3.10/dist-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/joint_state_publisher_gui build --build-base /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/build install --record /home/nils/Desktop/oblig3_ws/build/joint_state_publisher_gui/install.log --single-version-externally-managed

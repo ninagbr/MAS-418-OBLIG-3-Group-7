@@ -1,0 +1,41 @@
+[1.990s] Invoking command in '/home/nils/Desktop/oblig3_ws/src/crane_simulator': CMAKE_PREFIX_PATH=/home/nils/Desktop/oblig3_ws/install/crane_interfaces:/home/nils/Desktop/oblig3_ws/install/xacro:/home/nils/Desktop/oblig3_ws/install/crane_visualization:/home/nils/Desktop/oblig3_ws/install/crane_controller:/home/nils/Desktop/oblig3_ws/install/ads_example_package LD_LIBRARY_PATH=/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/nils/Desktop/oblig3_ws/build/crane_simulator/prefix_override:/home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/crane_simulator build --build-base /home/nils/Desktop/oblig3_ws/build/crane_simulator/build install --record /home/nils/Desktop/oblig3_ws/build/crane_simulator/install.log --single-version-externally-managed
+[2.698s] running egg_info
+[2.698s] creating ../../build/crane_simulator/crane_simulator.egg-info
+[2.698s] writing ../../build/crane_simulator/crane_simulator.egg-info/PKG-INFO
+[2.699s] writing dependency_links to ../../build/crane_simulator/crane_simulator.egg-info/dependency_links.txt
+[2.699s] writing entry points to ../../build/crane_simulator/crane_simulator.egg-info/entry_points.txt
+[2.699s] writing requirements to ../../build/crane_simulator/crane_simulator.egg-info/requires.txt
+[2.699s] writing top-level names to ../../build/crane_simulator/crane_simulator.egg-info/top_level.txt
+[2.699s] writing manifest file '../../build/crane_simulator/crane_simulator.egg-info/SOURCES.txt'
+[2.705s] reading manifest file '../../build/crane_simulator/crane_simulator.egg-info/SOURCES.txt'
+[2.709s] writing manifest file '../../build/crane_simulator/crane_simulator.egg-info/SOURCES.txt'
+[2.709s] running build
+[2.710s] running build_py
+[2.710s] creating /home/nils/Desktop/oblig3_ws/build/crane_simulator/build
+[2.711s] creating /home/nils/Desktop/oblig3_ws/build/crane_simulator/build/lib
+[2.711s] creating /home/nils/Desktop/oblig3_ws/build/crane_simulator/build/lib/crane_simulator
+[2.712s] copying crane_simulator/simulator.py -> /home/nils/Desktop/oblig3_ws/build/crane_simulator/build/lib/crane_simulator
+[2.712s] copying crane_simulator/__init__.py -> /home/nils/Desktop/oblig3_ws/build/crane_simulator/build/lib/crane_simulator
+[2.712s] running install
+[2.713s] running install_lib
+[2.715s] creating /home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages/crane_simulator
+[2.715s] copying /home/nils/Desktop/oblig3_ws/build/crane_simulator/build/lib/crane_simulator/simulator.py -> /home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages/crane_simulator
+[2.716s] copying /home/nils/Desktop/oblig3_ws/build/crane_simulator/build/lib/crane_simulator/__init__.py -> /home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages/crane_simulator
+[2.717s] byte-compiling /home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages/crane_simulator/simulator.py to simulator.cpython-310.pyc
+[2.719s] byte-compiling /home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages/crane_simulator/__init__.py to __init__.cpython-310.pyc
+[2.719s] running install_data
+[2.721s] creating /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/ament_index
+[2.722s] creating /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/ament_index/resource_index
+[2.722s] creating /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/ament_index/resource_index/packages
+[2.722s] copying resource/crane_simulator -> /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/ament_index/resource_index/packages
+[2.723s] copying package.xml -> /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/crane_simulator
+[2.723s] copying launch/simulator.launch.py -> /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/crane_simulator
+[2.724s] copying urdf/crane.urdf -> /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/crane_simulator
+[2.724s] copying urdf/green_crane.urdf -> /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/crane_simulator
+[2.725s] copying rviz/urdf.rviz -> /home/nils/Desktop/oblig3_ws/install/crane_simulator/share/crane_simulator
+[2.725s] running install_egg_info
+[2.729s] Copying ../../build/crane_simulator/crane_simulator.egg-info to /home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages/crane_simulator-0.0.0-py3.10.egg-info
+[2.731s] running install_scripts
+[2.771s] Installing simulator script to /home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/crane_simulator
+[2.777s] writing list of installed files to '/home/nils/Desktop/oblig3_ws/build/crane_simulator/install.log'
+[2.879s] Invoked command in '/home/nils/Desktop/oblig3_ws/src/crane_simulator' returned '0': CMAKE_PREFIX_PATH=/home/nils/Desktop/oblig3_ws/install/crane_interfaces:/home/nils/Desktop/oblig3_ws/install/xacro:/home/nils/Desktop/oblig3_ws/install/crane_visualization:/home/nils/Desktop/oblig3_ws/install/crane_controller:/home/nils/Desktop/oblig3_ws/install/ads_example_package LD_LIBRARY_PATH=/home/nils/Desktop/oblig3_ws/install/crane_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/nils/Desktop/oblig3_ws/build/crane_simulator/prefix_override:/home/nils/Desktop/oblig3_ws/install/crane_simulator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/crane_simulator build --build-base /home/nils/Desktop/oblig3_ws/build/crane_simulator/build install --record /home/nils/Desktop/oblig3_ws/build/crane_simulator/install.log --single-version-externally-managed

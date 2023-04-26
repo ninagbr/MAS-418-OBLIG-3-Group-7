@@ -1,0 +1,3 @@
+/home/nils/Desktop/oblig3_ws/build/ads_example/CMakeFiles/ads_example.dir
+/home/nils/Desktop/oblig3_ws/build/ads_example/CMakeFiles/edit_cache.dir
+/home/nils/Desktop/oblig3_ws/build/ads_example/CMakeFiles/rebuild_cache.dir

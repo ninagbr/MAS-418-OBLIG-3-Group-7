@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_Status" Id="{26df518e-7453-4e6d-ac16-889885b93dbd}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Status
+VAR_INPUT
+	eMode 	: E_Mode;
+	fTime	: LREAL;
+	bFault 	: BOOL;
+END_VAR
+VAR_OUTPUT
+	eStatus : E_Status := E_Status.Checking;
+END_VAR
+VAR
+	bRunning : BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF fTime > 2.0 THEN
+	bRunning := TRUE;
+ELSE
+	bRunning := FALSE;	
+END_IF
+
+
+CASE eStatus OF 
+	E_Status.Checking:
+		IF bFault THEN
+			eStatus := E_Status.Fault;
+		END_IF
+		
+		IF NOT(eMode = E_Mode.Off) AND NOT(bFault)THEN	
+			eStatus := E_Status.Ready;
+		END_IF
+		
+		IF eMode = E_Mode.Off THEN	
+			eStatus := E_Status.Off;
+		END_IF
+		
+	E_Status.Off:	
+		IF NOT(eMode = E_Mode.Off) THEN	
+			eStatus := E_Status.Checking;
+		END_IF
+
+	E_Status.Fault:
+		IF NOT(bFault) THEN
+			eStatus := E_Status.Checking;
+		END_IF
+	
+	E_Status.Ready:
+		IF G_Work.bStartButton AND NOT(eMode = E_Mode.Off) AND NOT(bFault) THEN
+			eStatus := E_Status.Starting;
+		END_IF	
+		
+		IF  eMode = E_Mode.Off OR bFault THEN
+			eStatus := E_Status.Checking;
+		END_IF	
+
+	E_Status.Starting:
+		IF bRunning THEN
+			eStatus := E_Status.Running;
+		END_IF 
+		
+		IF bFault OR eMode = E_Mode.Off  THEN
+			eStatus := E_Status.Checking;
+		END_IF
+		
+	
+	E_Status.Running:
+	
+		IF G_Work.bStopButton THEN
+			eStatus := E_Status.Stopping;
+		END_IF
+		
+		IF NOT(bRunning) OR eMode = E_Mode.Off OR bFault THEN
+			eStatus := E_Status.Checking;
+		END_IF
+	
+	E_Status.Stopping:	
+		IF NOT(bRunning) THEN
+			eStatus := E_Status.Checking;
+		END_IF
+	
+		IF eMode = E_Mode.Off OR bFault THEN
+		eStatus := E_Status.Checking;
+		END_IF	
+	
+ELSE 	
+	eStatus := E_Status.Checking;
+END_CASE
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Status">
+      <LineId Id="274" Count="0" />
+      <LineId Id="277" Count="0" />
+      <LineId Id="280" Count="1" />
+      <LineId Id="278" Count="0" />
+      <LineId Id="275" Count="0" />
+      <LineId Id="233" Count="0" />
+      <LineId Id="149" Count="34" />
+      <LineId Id="215" Count="1" />
+      <LineId Id="284" Count="0" />
+      <LineId Id="287" Count="3" />
+      <LineId Id="188" Count="22" />
+      <LineId Id="23" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

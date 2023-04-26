@@ -1,0 +1,6 @@
+{
+  "package_name": "crane_interfaces",
+  "non_idl_tuples": [
+    "/home/nils/Desktop/oblig3_ws/src/crane_interfaces:msg/MotionReference.msg"
+  ]
+}

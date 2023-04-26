@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/AdsLibTest.bin.dir/main.cpp.o -o AdsLibTest.bin  -Wl,-rpath,/home/nils/Desktop/oblig3_ws/build/ads/AdsLib ../AdsLib/libads.so 

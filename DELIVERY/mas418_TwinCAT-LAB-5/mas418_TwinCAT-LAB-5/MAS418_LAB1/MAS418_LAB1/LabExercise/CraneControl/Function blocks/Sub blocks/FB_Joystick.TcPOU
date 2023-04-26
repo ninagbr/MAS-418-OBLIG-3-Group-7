@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_Joystick" Id="{c7d518e7-72f7-41d3-8eec-d60f2a61bb42}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Joystick
+VAR_INPUT
+	bEnable 			: BOOL;
+	fNormalizedInput 	: LREAL;
+	stParam 			: ST_Parameters;
+END_VAR
+VAR_OUTPUT
+	fOuput : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bEnable THEN
+	fOuput := fNormalizedInput*G_Parameters.stParam.fMaxVelocityLimit;
+ELSE
+	fOuput := 0.0;
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Joystick">
+      <LineId Id="21" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

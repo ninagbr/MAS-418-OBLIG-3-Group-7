@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_AnimationScaling" Id="{c85ff27b-304d-4688-9966-8b751276c145}">
+    <Declaration><![CDATA[TYPE ST_AnimationScaling :
+STRUCT
+	fPistonScale : LREAL := 200;
+	fBoomScale : LREAL := 50;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

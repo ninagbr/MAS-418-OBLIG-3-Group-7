@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="FB_ActiveDamping" Id="{febc0978-7815-4e52-aeff-d60faa2a2a1d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ActiveDamping
+VAR_INPUT
+	ssMethodType: SINT;
+	bEnable: BOOL;
+	stParam : ST_Parameters;
+	fPressurePistonSide_Pa	: LREAL;
+	fPressureRodSide_Pa		: LREAL;
+END_VAR
+VAR_OUTPUT
+	fPressureFeedbackNormalized: LREAL;
+END_VAR
+VAR
+	rtb_Switch3: LREAL;
+	HighPassFilter_tmp: LREAL;
+	VectorConcatenate: ARRAY[0..1] OF LREAL;
+	VectorConcatenate1: ARRAY[0..1] OF LREAL;
+	VectorConcatenate2: ARRAY[0..2] OF LREAL;
+	VectorConcatenate3: ARRAY[0..2] OF LREAL;
+	HighPassFilter_states: LREAL;
+	ValveDynamicsInverse_states: ARRAY[0..1] OF LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE ssMethodType OF
+    0: 
+        HighPassFilter_states := 0.0;
+        ValveDynamicsInverse_states[0] := 0.0;
+        ValveDynamicsInverse_states[1] := 0.0;
+
+    1: 
+        IF bEnable THEN 
+            rtb_Switch3 := 0.0;
+        ELSE 
+            rtb_Switch3 := 1.0;
+        END_IF;
+
+        VectorConcatenate[0] := stParam.stPressureFeedback.fHPF_Num1;
+        VectorConcatenate[1] := stParam.stPressureFeedback.fHPF_Num2;
+        VectorConcatenate1[0] := stParam.stPressureFeedback.fHPF_Den1;
+        VectorConcatenate1[1] := stParam.stPressureFeedback.fHPF_Den2;
+        VectorConcatenate2[0] := stParam.stPressureFeedback.fVDI_Num1;
+        VectorConcatenate2[1] := stParam.stPressureFeedback.fVDI_Num2;
+        VectorConcatenate2[2] := stParam.stPressureFeedback.fVDI_Num3;
+        VectorConcatenate3[0] := stParam.stPressureFeedback.fVDI_Den1;
+        VectorConcatenate3[1] := stParam.stPressureFeedback.fVDI_Den2;
+        VectorConcatenate3[2] := stParam.stPressureFeedback.fVDI_Den3;
+
+        IF rtb_Switch3 <> 0.0 THEN 
+            HighPassFilter_states := 0.0;
+        END_IF;
+
+        HighPassFilter_tmp := (fPressurePistonSide_Pa - (0.7101 * fPressureRodSide_Pa)) - (VectorConcatenate1[1] * HighPassFilter_states);
+		
+        fPressureFeedbackNormalized := ((VectorConcatenate[0] * HighPassFilter_tmp) + (VectorConcatenate[1] * HighPassFilter_states)) * stParam.stPressureFeedback.fFlowGainInverse;
+
+        IF fPressureFeedbackNormalized > 1.0 THEN 
+            fPressureFeedbackNormalized := 1.0;
+        ELSIF fPressureFeedbackNormalized < -1.0 THEN 
+            fPressureFeedbackNormalized := -1.0;
+        END_IF;
+
+        IF rtb_Switch3 <> 0.0 THEN 
+            ValveDynamicsInverse_states[0] := 0.0;
+            ValveDynamicsInverse_states[1] := 0.0;
+        END_IF;
+
+        rtb_Switch3 := (fPressureFeedbackNormalized - (ValveDynamicsInverse_states[0] * VectorConcatenate3[1])) - (ValveDynamicsInverse_states[1] * VectorConcatenate3[2]);
+
+        IF bEnable THEN 
+            fPressureFeedbackNormalized := ((VectorConcatenate2[0] * rtb_Switch3) + (ValveDynamicsInverse_states[0] * VectorConcatenate2[1])) + (ValveDynamicsInverse_states[1] * VectorConcatenate2[2]);
+        ELSE 
+            fPressureFeedbackNormalized := 0.0;
+        END_IF;
+
+        IF fPressureFeedbackNormalized > 1.0 THEN 
+            fPressureFeedbackNormalized := 1.0;
+        ELSIF fPressureFeedbackNormalized < -1.0 THEN 
+            fPressureFeedbackNormalized := -1.0;
+        END_IF;
+
+        HighPassFilter_states := HighPassFilter_tmp;
+
+        ValveDynamicsInverse_states[1] := ValveDynamicsInverse_states[0];
+        ValveDynamicsInverse_states[0] := rtb_Switch3;
+END_CASE;
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ActiveDamping">
+      <LineId Id="5" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="3" />
+      <LineId Id="20" Count="4" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="62" Count="5" />
+      <LineId Id="159" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="72" Count="5" />
+      <LineId Id="83" Count="6" />
+      <LineId Id="93" Count="5" />
+      <LineId Id="104" Count="1" />
+      <LineId Id="107" Count="1" />
+      <LineId Id="110" Count="1" />
+      <LineId Id="116" Count="4" />
+      <LineId Id="122" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

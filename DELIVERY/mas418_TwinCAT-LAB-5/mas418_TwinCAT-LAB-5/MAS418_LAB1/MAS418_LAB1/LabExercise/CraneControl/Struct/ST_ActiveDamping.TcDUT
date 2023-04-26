@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="ST_ActiveDamping" Id="{db87ef8a-0ef2-4874-9a52-bc95a4674534}">
+    <Declaration><![CDATA[TYPE ST_ActiveDamping :
+STRUCT
+	fFlowGainInverse : LREAL := 1.7153E03;	
+	fHPF_Num1 : LREAL := 9.016E-12;
+	fHPF_Num2 : LREAL := -9.016E-12;
+	fHPF_Den1 : LREAL := 1.0;
+	fHPF_Den2 : LREAL := -0.9905;
+	fVDI_Num1 : LREAL := 25;
+	fVDI_Num2 : LREAL := -48.83;
+	fVDI_Num3 : LREAL := 23.85;
+	fVDI_Den1 : LREAL := 1;
+	fVDI_Den2 : LREAL := -1.721;
+	fVDI_Den3 : LREAL := 0.7408;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

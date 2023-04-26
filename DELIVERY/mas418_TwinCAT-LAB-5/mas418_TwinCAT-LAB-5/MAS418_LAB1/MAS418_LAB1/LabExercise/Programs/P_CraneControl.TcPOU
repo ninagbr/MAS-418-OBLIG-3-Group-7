@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="P_CraneControl" Id="{c8d14843-0c4e-4243-a583-0726f2828bd5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_CraneControl
+VAR
+ 	fbStatus 					: FB_Status;
+	fbRunningClock 				: FB_Clock;
+	fbManualControl 			: FB_ManualControl; 
+	bEnableManualControl 		: BOOL;
+	fbAutomaticControl 			: FB_AutomaticControl;
+	bEnableAutomaticControl 	: BOOL; 
+	fbActiveDamping 			: FB_ActiveDamping;
+	fControlOutputNormalized 	: LREAL; 
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbStatus(
+bFault := G_Work.bFault,
+eMode := G_Work.eMode,
+fTime := fbRunningClock.fTime,
+eStatus => G_Work.eStatus
+);
+
+fbRunningClock(
+	bStart := (fbStatus.eStatus = E_Status.Starting) OR (fbStatus.eStatus = E_Status.Running),
+	bStop := (fbStatus.eStatus = E_Status.Stopping),
+	fCycleTime := G_Parameters.stParam.fCyclicTime
+);
+
+fbManualControl(
+	eMode := G_Work.eMode,
+	eStatus := G_Work.eStatus,
+	stParam := G_Parameters.stParam, 
+);
+
+fbAutomaticControl(
+	eMode := G_Work.eMode,
+	eStatus := G_Work.eStatus,
+	stAutomaticControlSettings := G_Commissioning.stAutomaticControlSettings,
+	stMotionReferenceGeneratorSettings := G_Commissioning.stMotionReferenceGeneratorSettings,
+	stParam := G_Parameters.stParam,
+	fPositionFeedback := G_Simulator.fPistonPosition
+);
+
+fbActiveDamping(
+	ssMethodType := BOOL_TO_SINT(G_Commissioning.stAutomaticControlSettings.bEnableActiveDamping),
+	bEnable := (fbStatus.eStatus = E_Status.Running),
+	stParam := G_Parameters.stParam,
+	fPressurePistonSide_Pa := G_Simulator.fPistonSidePressure,
+	fPressureRodSide_Pa := G_Simulator.fRodSidePressure
+);
+ 
+IF (G_Work.eMode = E_Mode.Manual AND G_Work.eStatus = E_Status.Running) THEN
+	fControlOutputNormalized := LIMIT(-1.0, (fbManualControl.fControlOutputNormalized - fbActiveDamping.fPressureFeedbackNormalized), 1.0);
+ELSIF (G_Work.eMode = E_Mode.Auto AND G_Work.eStatus = E_Status.Running) THEN
+	fControlOutputNormalized := LIMIT(-1.0, (fbAutomaticControl.fControlOutputNormalized - fbActiveDamping.fPressureFeedbackNormalized), 1.0);
+ELSE
+	fControlOutputNormalized := 0.0;
+END_IF
+
+G_Work.fControlOutputNormalized := fControlOutputNormalized;]]></ST>
+    </Implementation>
+    <LineIds Name="P_CraneControl">
+      <LineId Id="123" Count="0" />
+      <LineId Id="126" Count="0" />
+      <LineId Id="182" Count="0" />
+      <LineId Id="127" Count="1" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="217" Count="0" />
+      <LineId Id="214" Count="0" />
+      <LineId Id="219" Count="2" />
+      <LineId Id="218" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="130" Count="1" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="210" Count="0" />
+      <LineId Id="161" Count="0" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="162" Count="1" />
+      <LineId Id="165" Count="1" />
+      <LineId Id="121" Count="0" />
+      <LineId Id="170" Count="0" />
+      <LineId Id="178" Count="1" />
+      <LineId Id="181" Count="0" />
+      <LineId Id="180" Count="0" />
+      <LineId Id="172" Count="1" />
+      <LineId Id="167" Count="0" />
+      <LineId Id="194" Count="0" />
+      <LineId Id="193" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

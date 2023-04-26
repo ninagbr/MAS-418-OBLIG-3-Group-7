@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="P_Simulator" Id="{536492b7-da96-4ec3-8126-8b196493af0f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P_Simulator
+VAR
+	fbCraneSimulator : FB_CraneSimulator;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbCraneSimulator(
+	ssMethodType := BOOL_TO_SINT(G_Simulator.bSimulatorOn),
+	uDCV := G_Work.fControlOutputNormalized,
+	ppbar => G_Simulator.fPistonSidePressure,
+	prbar => G_Simulator.fRodSidePressure,
+	xm => G_Simulator.fPistonPosition
+);
+
+// Piston Animation
+G_Simulator.stPistonAnimation.pt1_y := LREAL_TO_INT(fbCraneSimulator.xm * G_Parameters.stParam.stAnimationScaling.fPistonScale);
+// Boom Animation
+G_Simulator.fBoomAngle := F_PistonDisplacementToBoomAngle(xCyl := fbCraneSimulator.xm);
+G_Simulator.fBoomAnimation := F_BoomAnimation(
+	fScale := G_Parameters.stParam.stAnimationScaling.fBoomScale,
+	fBoomAngle := G_Simulator.fBoomAngle,
+	fBoomLength := G_Parameters.stParam.stCraneKinematics.fBoomLength,
+	fBoomTipX => G_Simulator.stBoomAnimation.pt1_x,
+	fBoomTipY => G_Simulator.stBoomAnimation.pt1_y
+);
+G_Simulator.fBoomAngleDeg := F_RadToDeg(fRad := G_Simulator.fBoomAngle);]]></ST>
+    </Implementation>
+    <LineIds Name="P_Simulator">
+      <LineId Id="5" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="1" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="22" Count="11" />
+      <LineId Id="20" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

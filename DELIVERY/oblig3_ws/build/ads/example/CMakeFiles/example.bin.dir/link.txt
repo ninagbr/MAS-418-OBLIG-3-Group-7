@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/example.bin.dir/example.cpp.o -o example.bin  -Wl,-rpath,/home/nils/Desktop/oblig3_ws/build/ads/AdsLib ../AdsLib/libads.so 

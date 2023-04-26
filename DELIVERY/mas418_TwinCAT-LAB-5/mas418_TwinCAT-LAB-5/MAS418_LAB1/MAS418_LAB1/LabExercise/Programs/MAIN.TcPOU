@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{710c49b1-6c28-4dfa-b3ee-ba840c2a49f8}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	bActivateMotion:BOOL;		//receive from ROS    sends start and stop signal
+	bAuto : BOOL;				//receive from ROS    is true if we want auto mode
+	bManual : BOOL;				//receive from ROS    is true if we want manual mode
+	fBoomAngleRef:LREAL;			//receive from ROS	  is the desired position for the angle of the boom
+	
+	fPrPist : LREAL;			//sent to ROS - pressure in piston side
+	fPrRod : LREAL;				//sent to ROS - pressure in rod side
+	fBoomAngle:LREAL;			//sent to ROS - is the actual boom angle while crane is moving
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[P_Commissioning();
+P_ControlBox();
+P_CraneControl();
+
+//SENDING TO ROS
+fPrPist := G_Simulator.fPistonSidePressure;
+fPrRod := G_Simulator.fRodSidePressure;
+fBoomAngle := -1 * G_Simulator.fBoomAngle;
+
+
+//RECEIVING FROM ROS
+
+
+
+	
+// start or stop system (through HMI buttons)
+IF bActivateMotion THEN
+	G_Work.bStartButton := TRUE;   //or G_Simulator.bSimulatorOn := bActivateMotion;
+//ELSE
+	//G_Work.bStopButton 	:= TRUE;
+END_IF 
+
+//auto or manual selection (through HMI variables)
+IF bAuto THEN
+	G_VirtualControlBox.bAutoSelector := FALSE;
+	// set reference position
+	G_VirtualControlBox.fJoystickY	:= 1 * fBoomAngleRef;				//OROR    fBoomAnimation 		: LREAL;	OR //	fBoomAngleDeg 		: LREAL;
+
+END_IF
+	
+IF bManual THEN 
+	G_VirtualControlBox.bAutoSelector := FALSE;
+END_IF 	
+
+
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="5" Count="2" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="47" Count="3" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="93" Count="1" />
+      <LineId Id="96" Count="1" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="68" Count="2" />
+      <LineId Id="111" Count="1" />
+      <LineId Id="110" Count="0" />
+      <LineId Id="79" Count="1" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="61" Count="1" />
+      <LineId Id="41" Count="1" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="26" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
