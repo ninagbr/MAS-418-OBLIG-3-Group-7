@@ -1,4 +1,0 @@
-[console_scripts]
-joint_state_publisher_gui = joint_state_publisher_gui.joint_state_publisher_gui:main
-state_publisher = urdf_tutorial_r2d2.state_publisher:main
-
