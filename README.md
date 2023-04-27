@@ -18,7 +18,7 @@ The joint_state_publisher, ads_example_package and xacro packages have been adde
 The launch file was modified to exclude the joint_state_publisher_gui, and include the ads_node program instead. 
 
 AUTO/MANUAL mode:
-I was not sure what was meant by “manual” and “auto” mode so this is the functionality I implemented:
+I was not sure what was meant by “manual” and “auto” mode so the following functionality was implemented:
 MANUAL: the crane is controlled by the joystick in the HMI while having the simulator open (it wont work if the simulator is not running) – no reference position is sent by ROS2
 AUTO: the reference position is set in ROS2 and sent to twinCAT which starts to move the crane to the position once the program starts.
 
